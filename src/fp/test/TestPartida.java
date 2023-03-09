@@ -3,7 +3,7 @@ package fp.test;
 import java.time.LocalDate;
 import java.util.List;
 
-import fp.Player;
+import common.Player;
 import fp.tipos.Equipo;
 import fp.tipos.Rango;
 import fp.Partida;
