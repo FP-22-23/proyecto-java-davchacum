@@ -26,7 +26,7 @@ public class Partida implements Comparable <Partida>{
 	private Rango rango_partida;
 	private List<String> personajes;
 	
-
+//CONSTRUCTOR 1
 	public Partida(Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,
 			Integer rivales_matados_azul,Integer monstruos_matados_azul,
 			Integer oro_equipo_rojo,Integer rivales_matados_rojo,
