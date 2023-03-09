@@ -1,7 +1,7 @@
-# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<22\>/\<23\>)
-Autor/a: \<David Chaves Cumbreras\>   uvus:\<JFH0630\>
+# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  2022/23)
+Autor/a: David Chaves Cumbreras   uvus:JFH0630
 
-Aquí debes añadir la descripción del dataset y un enunciado del dominio del proyecto.
+El objetivo de este dataset es analizar y recoger los datos de varias partidas del videojuego League of Legends en el año 2020 y se han realizado algunas modificaciones mediante la pagina web https://mockaroo.com para crear datos aleatorios y la propia función ALEATORIO de excel. El dataset original ha sido descargado de kaggle (https://www.kaggle.com/datasets/benfattori/league-of-legends-diamond-games-first-15-minutes). Originalmente el dataset contaba con 19 columnas y 46000 filas de las cuales se han hecho algunos ajustes para hacer el csv mas sencillo y mas claro, debido a la cantidad de datos que tenia el csv. Actualmente se ha creado una version simplificada y otra extendida del csv, pero se va a emplear de momento la version simplificada la cual cuenta con 20 filas y 20 columnas. Se han eliminado columnas del csv original como:
 
 
 ## Estructura de las carpetas del proyecto
