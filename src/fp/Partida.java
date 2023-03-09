@@ -58,7 +58,7 @@ public class Partida implements Comparable <Partida>{
 		
 		
 	}
-	//CONSTRUCTOR 2
+	//CONSTRUCTOR 3
 	public Partida(Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,Integer rivales_matados_azul,
 			Integer oro_equipo_rojo,Integer rivales_matados_rojo,LocalDate fecha_partida,Rango rango_partida) {
 		
