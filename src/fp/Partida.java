@@ -16,22 +16,21 @@ public class Partida implements Comparable <Partida>{
 	private Integer oro_equipo_azul;
 	private Integer rivales_matados_azul;
 	private Integer monstruos_matados_azul;
+	private Double media_nivel_azul;
 	private Integer oro_equipo_rojo;
 	private Integer rivales_matados_rojo;
 	private Integer monstruos_matados_rojo;
-	private Double media_nivel_azul;
 	private Double media_nivel_rojo;
 	private LocalDate fecha_partida;
-	private Player mejor_jugador;
 	private Rango rango_partida;
+	private Player mejor_jugador;
 	private List<String> personajes;
 	
 //CONSTRUCTOR 1
 	public Partida(Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,
-			Integer rivales_matados_azul,Integer monstruos_matados_azul,
+			Integer rivales_matados_azul,Integer monstruos_matados_azul,Double media_nivel_azul,
 			Integer oro_equipo_rojo,Integer rivales_matados_rojo,
-			Integer monstruos_matados_rojo,Double media_nivel_azul,
-			Double media_nivel_rojo,LocalDate fecha_partida,
+			Integer monstruos_matados_rojo,Double media_nivel_rojo,LocalDate fecha_partida,
 			Rango rango_partida,Player mejor_jugador,List<String> personajes) {
 		
 		checkId_partida(id_partida);
@@ -46,10 +45,10 @@ public class Partida implements Comparable <Partida>{
 		this.oro_equipo_azul=oro_equipo_azul;
 		this.rivales_matados_azul=rivales_matados_azul;
 		this.monstruos_matados_azul=monstruos_matados_azul;
+		this.media_nivel_azul=media_nivel_azul;
 		this.oro_equipo_rojo=oro_equipo_rojo;
 		this.rivales_matados_rojo=rivales_matados_rojo;
 		this.monstruos_matados_rojo=monstruos_matados_rojo;
-		this.media_nivel_azul=media_nivel_azul;
 		this.media_nivel_rojo=media_nivel_rojo;
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
@@ -73,10 +72,10 @@ public class Partida implements Comparable <Partida>{
 		this.oro_equipo_azul=oro_equipo_azul;
 		this.rivales_matados_azul=rivales_matados_azul;
 		this.monstruos_matados_azul=null;
+		this.media_nivel_azul=null;
 		this.oro_equipo_rojo=oro_equipo_rojo;
 		this.rivales_matados_rojo=rivales_matados_rojo;
 		this.monstruos_matados_rojo=null;
-		this.media_nivel_azul=null;
 		this.media_nivel_rojo=null;
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
@@ -97,10 +96,10 @@ public class Partida implements Comparable <Partida>{
 		this.oro_equipo_azul=null;
 		this.rivales_matados_azul=null;
 		this.monstruos_matados_azul=null;
+		this.media_nivel_azul=null;
 		this.oro_equipo_rojo=null;
 		this.rivales_matados_rojo=null;
 		this.monstruos_matados_rojo=null;
-		this.media_nivel_azul=null;
 		this.media_nivel_rojo=null;
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
@@ -318,10 +317,11 @@ public class Partida implements Comparable <Partida>{
 	public String toString() {
 		return "Partida [id_partida=" + getId_partida() + ", gana_azul=" + getGana_azul() + ", oro_equipo_azul="
 				+ getOro_equipo_azul() + ", rivales_matados_azul=" + getRivales_matados_azul() + ", monstruos_matados_azul="
-				+ getMonstruos_matados_azul() + ", oro_equipo_rojo=" + getOro_equipo_rojo() + ", rivales_matados_rojo="
-				+ getRivales_matados_rojo() + ", monstruos_matados_rojo=" + getMonstruos_matados_rojo() + ", media_nivel_azul="
-				+ getMedia_nivel_azul() + ", media_nivel_rojo=" + getMedia_nivel_rojo() + ", fecha_partida=" + getFecha_partida()
-				+ ", rango_partida"+getRango_partida()+", mejor_jugador=" + getMejor_jugador() +", personajes="+getPersonajes()+"]";
+				+ getMonstruos_matados_azul() + ", media_nivel_azul="+ getMedia_nivel_azul() + ", oro_equipo_rojo=" 
+				+ getOro_equipo_rojo() + ", rivales_matados_rojo="+ getRivales_matados_rojo() 
+				+ ", monstruos_matados_rojo=" + getMonstruos_matados_rojo() + ", media_nivel_rojo=" 
+				+ getMedia_nivel_rojo() + ", fecha_partida=" + getFecha_partida()+ ", rango_partida"+getRango_partida()
+				+", mejor_jugador=" + getMejor_jugador() +", personajes="+getPersonajes()+"]";
 	}
 
 	public int hashCode() {
