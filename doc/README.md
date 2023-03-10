@@ -123,6 +123,7 @@ El tipo base del proyecto es de tipo Partida, en donde se almacena la informacio
  Si se cumple estas condiciones en dos partidas, se considera que ese mismo dia coindicidieron las mismas personas en 2 partidas.
  
  
+ 
 **Criterio de ordenación**: Por fecha_partida y por id_partida.
 
 **Otras operaciones**:
