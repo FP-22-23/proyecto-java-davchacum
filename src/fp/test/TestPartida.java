@@ -47,11 +47,7 @@ public class TestPartida {
 		parseCompareTo(Prueba1,Prueba1);
 		
 		
-		
-		
-		
-		
-		
+
 	}
 	private static void parseCompareTo(Partida p1,Partida p2) {
 		

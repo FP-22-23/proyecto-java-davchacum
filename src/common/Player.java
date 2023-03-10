@@ -9,6 +9,7 @@ import fp.utiles.Checkers;
 public record Player(String nombre,Integer rivales_matados,Integer muertes,Integer asistencias,Equipo equipo) {
 
 	//CONSTRUCTOR CON RESTRICCIONES
+	
 	public Player{
 		checkPositivo(rivales_matados);
 		checkPositivo(muertes);
