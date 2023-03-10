@@ -40,6 +40,7 @@ Hay varios factores que intervienen en el transcurso de una partida, pero por no
 
 
 
+
 El dataset MatchTimelinesFirst15(simplificado) está compuesto por 21 columnas, con la siguiente descripción:
 
 * **matchId**: de tipo entero largo, representa un numero identificativo de la partida de 10 digitos.
