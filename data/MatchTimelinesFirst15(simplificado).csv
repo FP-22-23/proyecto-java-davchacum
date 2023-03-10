@@ -1,21 +1,21 @@
-matchId;blue_win;blueGold;blueChampKills;blueMinionsKilled;blueMonsterKills;blueAvgLevel;redGold;redChampKills;redMinionsKilled;redMonsterKills;redAvgLevel;datematch;rango;bestplayer;enemiesKilled;deads;assists;team;champs
-3493250918;false;24575;6;438;1;8,6;25856;12;426;2;9,2;10/03/2020;;ejanas0;;;;;
-3464936341;false;27210;20;326;0;9,0;28765;19;386;2;9,4;06/05/2020;;pguichard1;;;;;
-3428425921;true;32048;17;438;3;9,4;25305;11;377;0;9,4;23/02/2020;;neasen2;;;;;
-3428347390;false;20261;7;283;0;8,2;30429;16;463;3;9,4;24/03/2020;;kbarajaz3;;;;;
-3428350940;true;30217;16;486;3;9,8;23889;8;394;0;8,8;04/02/2020;;jpaolone4;;;;;
-3494458885;true;25470;9;444;1;9,2;22856;7;405;1;8,8;30/06/2020;;rshaelade5;;;;;
-3463320642;true;25391;8;446;2;9,2;23236;5;425;1;8,6;17/04/2020;;mcleft6;;;;;
-3463280042;false;28946;15;432;2;9,2;26528;14;374;1;8,8;09/08/2020;;cforstall7;;;;;
-3462718876;true;26928;11;459;1;9,6;23065;5;457;2;9,2;17/11/2020;;pdemcak8;;;;;
-3462733928;true;26079;9;408;1;9,0;27275;10;438;2;9,4;10/02/2020;;sfredi9;;;;;
-3494594463;false;23215;9;377;2;9,0;26823;9;479;0;9,0;17/12/2020;;jyeardleya;;;;;
-3464834050;true;27944;13;413;3;9,0;21329;4;395;0;8,8;19/04/2020;;kbrooksbyb;;;;;
-3431783366;true;24979;6;471;2;9,4;26341;10;436;1;9,6;16/01/2020;;hdavydenkoc;;;;;
-3399726949;false;23095;10;294;0;8,0;31472;15;459;3;9,2;14/08/2020;;soulveta;;;;;
-3399742211;true;27466;12;438;2;8,8;23844;7;424;0;8,8;23/12/2020;;sferraracioe;;;;;
-3501697287;true;26804;6;476;2;9,2;24590;6;483;0;9,4;26/04/2020;;rsempillf;;;;;
-3500141669;true;27754;10;474;1;9,6;24831;6;451;2;9,4;25/01/2020;;rregog;;;;;
-3497105469;false;23213;6;422;2;9,0;28497;13;481;1;9,8;19/06/2020;;dbarkhouseh;;;;;
-3486983506;false;26523;9;437;1;9,2;27328;11;454;2;9,4;01/05/2020;;mbreinleini;;;;;
-3485738231;true;33120;19;498;2;9,6;24330;7;375;1;8,6;19/01/2020;;ulanegranj;;;;;
+matchId;blue_win;blueGold;blueChampKills;blueMinionsKilled;blueMonsterKills;blueAvgLevel;redGold;redChampKills;redMinionsKilled;redMonsterKills;redAvgLevel;datematch;rango;server;bestplayer;enemiesKilled;deads;assists;team;champs
+3493250918;false;24575;6;438;1;8,6;25856;12;426;2;9,2;10/03/2020;DIAMANTE_IV;Europa;ejanas0;8;2;1;ROJO;Jhin,Dr Mundo
+3464936341;false;27210;20;326;0;9;28765;19;386;2;9,4;06/05/2020;DIAMANTE_I;Europa;pguichard1;12;1;3;ROJO;Annie
+3428425921;true;32048;17;438;3;9,4;25305;11;377;0;9,4;23/02/2020;DIAMANTE_III;Europa;neasen2;7;3;3;AZUL;Camille
+3428347390;false;20261;7;283;0;8,2;30429;16;463;3;9,4;24/03/2020;DIAMANTE_IV;Norte America;kbarajaz3;7;1;0;AZUL;Kalista,Blitzcrank
+3428350940;true;30217;16;486;3;9,8;23889;8;394;0;8,8;04/02/2020;DIAMANTE_IV;Europa;jpaolone4;9;2;2;AZUL;Ashe,Lulu
+3494458885;true;25470;9;444;1;9,2;22856;7;405;1;8,8;30/06/2020;DIAMANTE_II;China;rshaelade5;3;0;4;ROJO;Vladimir
+3463320642;true;25391;8;446;2;9,2;23236;5;425;1;8,6;17/04/2020;DIAMANTE_I;Europa;mcleft6;5;2;0;ROJO;Zac,Singed
+3463280042;false;28946;15;432;2;9,2;26528;14;374;1;8,8;09/08/2020;DIAMANTE_IV;Europa;cforstall7;9;3;2;ROJO;Lux,Shyvana
+3462718876;true;26928;11;459;1;9,6;23065;5;457;2;9,2;17/11/2020;DIAMANTE_IV;Sudeste Asiatico;pdemcak8;6;1;3;AZUL;Lux,Ezreal
+3462733928;true;26079;9;408;1;9;27275;10;438;2;9,4;10/02/2020;DIAMANTE_III;Europa;sfredi9;4;2;4;ROJO;Heimerdinger,Draven
+3494594463;false;23215;9;377;2;9;26823;9;479;0;9;17/12/2020;DIAMANTE_II;Europa;jyeardleya;5;3;3;AZUL;Aphelios,K'aisa
+3464834050;true;27944;13;413;3;9;21329;4;395;0;8,8;19/04/2020;DIAMANTE_IV;Korea;kbrooksbyb;8;3;1;AZUL;Aksham,Nunu y willump
+3431783366;true;24979;6;471;2;9,4;26341;10;436;1;9,6;16/01/2020;DIAMANTE_II;Oceania;hdavydenkoc;6;1;0;ROJO;Cassiopeia,Aatrox
+3399726949;false;23095;10;294;0;8;31472;15;459;3;9,2;14/08/2020;DIAMANTE_IV;Europa;soulveta;5;0;3;AZUL;Kayn,Twitch
+3399742211;true;27466;12;438;2;8,8;23844;7;424;0;8,8;23/12/2020;DIAMANTE_I;Europa;sferraracioe;5;4;2;ROJO;Ahri,Katarina
+3501697287;true;26804;6;476;2;9,2;24590;6;483;0;9,4;26/04/2020;DIAMANTE_I;Europa;rsempillf;2;1;3;AZUL;Shen,Illaoi
+3500141669;true;27754;10;474;1;9,6;24831;6;451;2;9,4;25/01/2020;DIAMANTE_IV;Japon;rregog;4;2;3;AZUL;Gnar,Jinx
+3497105469;false;23213;6;422;2;9;28497;13;481;1;9,8;19/06/2020;DIAMANTE_III;Europa;dbarkhouseh;7;3;0;ROJO;Senna,Tahm Kench
+3486983506;false;26523;9;437;1;9,2;27328;11;454;2;9,4;01/05/2020;DIAMANTE_IV;Europa;mbreinleini;4;0;5;ROJO;Lux
+3485738231;true;33120;19;498;2;9,6;24330;7;375;1;8,6;19/01/2020;DIAMANTE_II;Europa;ulanegranj;2;4;13;AZUL;Kalista,Nautilus,Lucian,Nami

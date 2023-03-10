@@ -14,9 +14,9 @@ public class TestPartida {
 	public static void main(String[] args) {
 		System.out.println("Test Constructores:\n");
 		
-		Partida Prueba1=new Partida(3500000001L,true, LocalDate.of(2020, 2, 2),Rango.DIAMANTE_VI);
+		Partida Prueba1=new Partida(3500000001L,true, LocalDate.of(2020, 2, 2),Rango.DIAMANTE_IV);
 		System.out.println(Prueba1);
-		Partida Prueba2=new Partida(3500000002L, false, 21000, 15, 15000, 15, LocalDate.of(2020, 2, 2),Rango.DIAMANTE_VI);
+		Partida Prueba2=new Partida(3500000002L, false, 21000, 15, 15000, 15, LocalDate.of(2020, 2, 2),Rango.DIAMANTE_IV);
 		System.out.println(Prueba2);
 		Player Player1=new Player("sahsajhn", 14, 0, 1, Equipo.AZUL);
 		Partida Prueba3=new Partida(3500000003L, true, 21000, 15, 3, 9.2, 15000, 15, 0, 9.0, LocalDate.of(2020, 2, 2),Rango.DIAMANTE_III, Player1,List.of("Kalista","Jhin"));
