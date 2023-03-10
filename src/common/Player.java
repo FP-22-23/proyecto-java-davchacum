@@ -8,26 +8,28 @@ import fp.utiles.Checkers;
 
 public record Player(String nombre,Integer rivales_matados,Integer muertes,Integer asistencias,Equipo equipo) {
 
-
+	//CONSTRUCTOR CON RESTRICCIONES
 	public Player{
 		checkPositivo(rivales_matados);
 		checkPositivo(muertes);
 		checkPositivo(asistencias);
 	}
-	
+	//RESTRICCION TODOS LOS VALORES >=0
 	private void checkPositivo(Integer valor) {
 			
 		
 		Checkers.check("ERROR VALOR NEGATIVO",valor>=0);
 				
 	}
-	@Override
+	//REPRESENTACION COMO CADENA
 	public String toString() {
 		return "Player [nombre=" + nombre + ", rivales_matados=" + rivales_matados + ", muertes=" + muertes
 				+ ", asistencias=" + asistencias + ", equipo=" + equipo + "]";
 	}
 
-	@Override
+	//CRITERIO DE IGUALDAD HASCODE Y EQUALS 
+	
+	//se considera el mismo jugador si tienen el mismo nombre
 	public int hashCode() {
 		return Objects.hash(nombre);
 	}

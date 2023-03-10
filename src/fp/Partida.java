@@ -1,5 +1,6 @@
 package fp;
 
+//ENTREGA 1
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,6 +12,8 @@ import fp.tipos.TipoVictoria;
 import fp.utiles.Checkers;
 
 public class Partida implements Comparable <Partida>{
+	
+	//ATRIBUTOS
 	private Long id_partida;
 	private Boolean gana_azul;
 	private Integer oro_equipo_azul;
@@ -24,8 +27,11 @@ public class Partida implements Comparable <Partida>{
 	private LocalDate fecha_partida;
 	private Rango rango_partida;
 	private String server;
+	//TIPO AUXILIAR PLAYER
 	private Player mejor_jugador;
 	private List<String> personajes;
+	
+//CONSTRUCTORES Y RESTRICCIONES
 	
 //CONSTRUCTOR 1
 	public Partida(Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,
@@ -34,23 +40,28 @@ public class Partida implements Comparable <Partida>{
 			Integer monstruos_matados_rojo,Double media_nivel_rojo,LocalDate fecha_partida,
 			Rango rango_partida,String server,Player mejor_jugador,List<String> personajes) {
 		
-		checkId_partida(id_partida);
+		
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
 		checkAsesinato_player_partida(rivales_matados_azul,rivales_matados_rojo,mejor_jugador);
-		checkFecha(fecha_partida);
-		checkMedia_nivel(media_nivel_azul);
-		checkMedia_nivel(media_nivel_rojo);
-
+		
+		checkId_partida(id_partida);
 		this.id_partida=id_partida;
 		this.gana_azul=gana_azul;
+		checkPositivo(oro_equipo_azul);
 		this.oro_equipo_azul=oro_equipo_azul;
+		checkPositivo(rivales_matados_azul);
 		this.rivales_matados_azul=rivales_matados_azul;
 		this.monstruos_matados_azul=monstruos_matados_azul;
+		checkMedia_nivel(media_nivel_azul);
 		this.media_nivel_azul=media_nivel_azul;
+		checkPositivo(oro_equipo_rojo);
 		this.oro_equipo_rojo=oro_equipo_rojo;
+		checkPositivo(oro_equipo_azul);
 		this.rivales_matados_rojo=rivales_matados_rojo;
 		this.monstruos_matados_rojo=monstruos_matados_rojo;
+		checkMedia_nivel(media_nivel_rojo);
 		this.media_nivel_rojo=media_nivel_rojo;
+		checkFecha(fecha_partida);
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
 		this.server=server;
@@ -63,22 +74,29 @@ public class Partida implements Comparable <Partida>{
 	public Partida(Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,Integer rivales_matados_azul,
 			Integer oro_equipo_rojo,Integer rivales_matados_rojo,LocalDate fecha_partida,Rango rango_partida,String server) {
 		
-		checkId_partida(id_partida);
+		
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
 		checkAsesinato_player_partida(rivales_matados_azul,rivales_matados_rojo,mejor_jugador);
-		checkFecha(fecha_partida);
-		checkMedia_nivel(media_nivel_azul);
-		checkMedia_nivel(media_nivel_rojo);
+		
+		
+		checkId_partida(id_partida);
 		this.id_partida=id_partida;
 		this.gana_azul=gana_azul;
+		checkPositivo(oro_equipo_azul);
 		this.oro_equipo_azul=oro_equipo_azul;
+		checkPositivo(rivales_matados_azul);
 		this.rivales_matados_azul=rivales_matados_azul;
 		this.monstruos_matados_azul=null;
+		checkMedia_nivel(media_nivel_azul);
 		this.media_nivel_azul=null;
+		checkPositivo(oro_equipo_rojo);
 		this.oro_equipo_rojo=oro_equipo_rojo;
+		checkPositivo(rivales_matados_rojo);
 		this.rivales_matados_rojo=rivales_matados_rojo;
 		this.monstruos_matados_rojo=null;
+		checkMedia_nivel(media_nivel_rojo);
 		this.media_nivel_rojo=null;
+		checkFecha(fecha_partida);
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
 		this.server=server;
@@ -87,6 +105,7 @@ public class Partida implements Comparable <Partida>{
 		
 		
 	}
+	//CONSTRUCTOR 3
 	public Partida(Long id_partida,Boolean gana_azul,LocalDate fecha_partida,Rango rango_partida,String server) {
 		checkId_partida(id_partida);
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
@@ -111,31 +130,35 @@ public class Partida implements Comparable <Partida>{
 		this.personajes=null;
 			
 	}
+	//RESTRICCIONES
+	
+	//RESTRICCION 1
 	private void checkId_partida(Long id_partida) {
 		
 		Checkers.check("ID PARTIDA INCORRECTA INCORRECTA",(id_partida>=3300000000L && id_partida<3600000000L));		
 		}
+	//RESTRICCION 2
 	private void checkMedia_nivel(Double media_nivel) {
 		if(media_nivel!=null) {
-			Checkers.check("MEDIA NIVEL INCORRECTA",(media_nivel>=0.0 && media_nivel<18.0));		
+			Checkers.check("MEDIA NIVEL INCORRECTA",(media_nivel>=1.0 && media_nivel<18.0));		
 		}
 		
 	}
-	
+	//RESTRICCION 3
 	private void checkMonstruos_matados(Integer monstruos_matados_azul,Integer monstruos_matados_rojo) {
-		if(!(monstruos_matados_azul==null || monstruos_matados_rojo==null)) {
+		if(monstruos_matados_azul!=null || monstruos_matados_rojo!=null) {
 			Checkers.check("TOTAL DE MONSTRUOS INCORRECTO",(monstruos_matados_azul+monstruos_matados_rojo<=3 && monstruos_matados_azul+monstruos_matados_rojo>=0));
 		}
 	}
-	
+	//RESTRICCION 4
 	private void checkFecha(LocalDate fecha_partida) {
 		
-		Checkers.check("FECHA INCORRECTA",(fecha_partida.isAfter(LocalDate.of(2020, 1, 1)) && fecha_partida.isBefore(LocalDate.of(2020, 12, 31))));
+		Checkers.check("FECHA INCORRECTA",(fecha_partida.isAfter(LocalDate.of(2019, 12, 31)) && fecha_partida.isBefore(LocalDate.of(2021, 1, 1))));
 	}
-	
+	//RESTRICCION 5
 	private void checkAsesinato_player_partida(Integer rivales_matados_azul,Integer rivales_matados_rojo,Player mejor_jugador) {
 		
-		if(!(mejor_jugador==null)){
+		if(mejor_jugador!=null){
 			switch(mejor_jugador.equipo()) {
 				case AZUL:
 					Checkers.check("VALOR INCORRECTO ENTRE LA PARTIDA Y EL JUGADOR EN LOS RIVALES MATADOS O ASISTENCIAS(EQUIPO AZUL)",mejor_jugador.rivales_matados()+mejor_jugador.asistencias()<=rivales_matados_azul);
@@ -146,6 +169,16 @@ public class Partida implements Comparable <Partida>{
 			}
 		}
 	}
+	//RESTRICCION 6
+	private void checkPositivo(Integer valor) {
+				
+		if(valor!=null) {
+			Checkers.check("ERROR VALOR NEGATIVO",valor>=0);
+		}
+	}
+	
+	//GETTERS AND SETTERS
+	
 	public Long getId_partida() {
 		return id_partida;
 	}
@@ -268,6 +301,10 @@ public class Partida implements Comparable <Partida>{
 	public void setPersonajes(List<String> personajes) {
 		this.personajes = personajes;
 	}
+	
+	//PROPIEDADES DERIVADAS
+	
+	//PROPIEDAD DERIVADA 1
 	public String getEquipo_ganador() {
 		String res="ROJO";
 		if(gana_azul==true) {
@@ -276,6 +313,7 @@ public class Partida implements Comparable <Partida>{
 		return res;
 		
 	}
+	//PROPIEDAD DERIVADA 2
 	public TipoVictoria getTipoVictoria() {
 		//	REMONTADA,IGUALADA,MUCHA_VENTAJA,VENTAJA_ACEPTABLE;
 		TipoVictoria res=TipoVictoria.NO_DATA;
@@ -290,7 +328,7 @@ public class Partida implements Comparable <Partida>{
 		}
 		return res;
 	}
-	
+	//PARSE EMPLEADO PARA REUTILIZAR CODIGO
 	public TipoVictoria parseaTipoVictoria(Integer oro_equipo_ganador,Integer oro_equipo_perdedor) {
 		
 		
@@ -324,6 +362,7 @@ public class Partida implements Comparable <Partida>{
 		}
 		return res;
 	}
+	//REPRESENTACION COMO CADENA
 	public String toString() {
 		return "Partida [id_partida=" + getId_partida() + ", gana_azul=" + getGana_azul() + ", oro_equipo_azul="
 				+ getOro_equipo_azul() + ", rivales_matados_azul=" + getRivales_matados_azul() + ", monstruos_matados_azul="
@@ -331,16 +370,23 @@ public class Partida implements Comparable <Partida>{
 				+ getOro_equipo_rojo() + ", rivales_matados_rojo="+ getRivales_matados_rojo() 
 				+ ", monstruos_matados_rojo=" + getMonstruos_matados_rojo() + ", media_nivel_rojo=" 
 				+ getMedia_nivel_rojo() + ", fecha_partida=" + getFecha_partida()+ ", rango_partida"+getRango_partida()
-				+", mejor_jugador=" + getMejor_jugador() +", personajes="+getPersonajes()+"]";
+				+", server="+getServer()+", mejor_jugador=" + getMejor_jugador() +", personajes="+getPersonajes()+"]";
 	}
 
 	
 
-	@Override
+	//CRITERIO DE IGUALDAD HASH CODE Y EQUALS
+	
+	/*
+	 * En una partida se considera que jugaron las mismas personas respecto a otra si:
+	 * 
+	 * 1º La partida se jugó el mismo dia.
+	 * 2º La partida era del mismo Rango(DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I).
+	 * 3º La partida tuvo lugar en el mismo servidor.
+	 */
 	public int hashCode() {
 		return Objects.hash(fecha_partida, rango_partida, server);
 	}
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -352,6 +398,13 @@ public class Partida implements Comparable <Partida>{
 		return Objects.equals(fecha_partida, other.fecha_partida) && rango_partida == other.rango_partida
 				&& Objects.equals(server, other.server);
 	}
+	
+	//CRITERIO DE ORDEN NATURAL COMPARE TO
+	
+	/*
+	 * Criterio de ordenacion:Por fecha_partida y por id_partida.
+	 */
+	
 	public int compareTo(Partida p) {
 		int res=getFecha_partida().compareTo(p.getFecha_partida());
 		if(res==0) {
