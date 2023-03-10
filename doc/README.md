@@ -44,19 +44,19 @@ minutos solo se pueden matar 3 monstruos en total(la suma de los monstruos de ca
 
 El dataset MatchTimelinesFirst15(simplificado) está compuesto por 21 columnas, con la siguiente descripción:
 
-* **matchId**: de tipo Long, representa un numero identificativo de la partida de 10 digitos.
-* **blue_win**: de tipo Boolean, devuelve true si ganó el equipo azul, y devuelve false si ganó el equipo rojo.
-* **blueGold**: de tipo Integer>,representa  la suma de oro de las 5 personas del equipo azul.
-* **blueChampKills**: de tipo Integer, representa la suma de los enemigos rojos matados por parte del equipo azul.
-* **blueMonsterKills**: de tipo Integer, representa la suma de los monstruos matados por parte del equipo azul.
-* **blueAvgLevel**: de tipo Double, representa la media de nivel del equipo azul.
-* **redGold**: de tipo Integer, representa la suma de oro de las 5 personas del equipo rojo.
-* **redChampKills**: de tipo Integer, representa la suma de los enemigos azules matados por parte del equipo rojo.
-* **redMonsterKills**: de tipo Integer, representa la suma de los monstruos matados por parte del equipo rojo.
-* **redAvgLevel**: de tipo Double, representa la media de nivel del equipo rojo.
-* **datematch**: de tipo LocalDate, representa el dia en el que tiene lugar la partida.
+* **matchId**: de tipo entero largo, representa un numero identificativo de la partida de 10 digitos.
+* **blue_win**: de tipo boleano, devuelve true si ganó el equipo azul, y devuelve false si ganó el equipo rojo.
+* **blueGold**: de tipo entero,representa  la suma de oro de las 5 personas del equipo azul.
+* **blueChampKills**: de tipo entero, representa la suma de los enemigos rojos matados por parte del equipo azul.
+* **blueMonsterKills**: de tipo entero, representa la suma de los monstruos matados por parte del equipo azul.
+* **blueAvgLevel**: de tipo flotante, representa la media de nivel del equipo azul.
+* **redGold**: de tipo entero, representa la suma de oro de las 5 personas del equipo rojo.
+* **redChampKills**: de tipo entero, representa la suma de los enemigos azules matados por parte del equipo rojo.
+* **redMonsterKills**: de tipo entero, representa la suma de los monstruos matados por parte del equipo rojo.
+* **redAvgLevel**: de tipo flotante, representa la media de nivel del equipo rojo.
+* **datematch**: de tipo fecha, representa el dia en el que tiene lugar la partida.
 * **rango**: de tipo Rango, representa la categoria de la partida pudiendo ser 	DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I.
-* **server**: de tipo String,representa el servidor en el que tiene lugar la partida puede ser tanto un pais, una region o un continente.
+* **server**: de tipo cadena,representa el servidor en el que tiene lugar la partida puede ser tanto un pais, una region o un continente.
 
 
 
@@ -68,7 +68,7 @@ El dataset MatchTimelinesFirst15(simplificado) está compuesto por 21 columnas, 
     * **assists**: de tipo Integer, representa el numero de asistencia del jugadores
     * **team**: de tipo Equipo, representa al equipo al que pertenece el jugador, puede ser ROJO o AZUL.
 
-* **champs**: de tipo List, representa algunos personajes que hay en la partida.
+* **champs**: de tipo lista, representa algunos personajes que hay en la partida.
 
 
 
@@ -83,19 +83,24 @@ diamante.
 
 **Propiedades**:
 
-- __id_partida__, de tipo Long,consultable y modificable.
-- __gana_azul__, de tipo Boolean,consultable y modificable.
-- __oro_equipo_azul__, de tipo Integer,consultable y modificable.
-- __rivales_matados_azul__, de tipo Integer,consultable y modificable.
-- __monstruos_matados_azul__, de tipo Double, consultable y modificable.
-- __media_nivel_azul__, de tipo Integer, consultable y modificable.
-- __oro_equipo_rojo__, de tipo Integer, consultable y modificable.
-- __rivales_matados_rojo__, de tipo Integer, consultable y modificable.
-- __monstruos_matados_rojo__, de tipo Integer, consultable y modificable.
-- __media_nivel_rojo__, de tipo Double, consultable y modificable.
-- __fecha_partida__, de tipo LocalDate,consultable y modificable.
-- __rango__, de tipo Rango,consultable y modificable.
-- __server__, de tipo String,consultable y modificable.
+- __id_partida__, de tipo Long,consultable y modificable. Indica un numero identificativo de la partida de 10 digitos.
+- __gana_azul__, de tipo Boolean,consultable y modificable. Devuelve true si ganó el equipo azul, y devuelve false si ganó el equipo rojo.
+- __oro_equipo_azul__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos rojos matados por parte del equipo azul.
+- __rivales_matados_azul__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos rojos matados por parte del equipo azul.
+- __monstruos_matados_azul__, de tipo Double, consultable y modificable. Indica la suma de los monstruos matados por parte del equipo azul.
+- __media_nivel_azul__, de tipo Integer, consultable y modificable. Indica la media de nivel del equipo azul.
+- __oro_equipo_rojo__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos azules matados por parte del equipo rojo.
+- __rivales_matados_rojo__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos azules matados por parte del equipo rojo.
+- __monstruos_matados_rojo__, de tipo Double, consultable y modificable. Indica la suma de los monstruos matados por parte del equipo rojo.
+- __media_nivel_rojo__, de tipo Integer, consultable y modificable. Indica la media de nivel del equipo rojo.
+- __fecha_partida__, de tipo LocalDate,consultable y modificable. Indica el dia en el que tiene lugar la partida.
+- __rango__, de tipo Rango,consultable y modificable. Indica la categoria de la partida pudiendo ser 	DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I. 
+- __server__, de tipo String,consultable y modificable. Indica el servidor en el que tiene lugar la partida puede ser tanto un pais, una region o un continente.
+- __mejor_jugador__, de tipo Player(auxiliar),consultable y modificable. Indica los datos del mejor jugador de la partida.
+- __personajes__, de tipo List<String>,consultable y modificable. Indica algunos personajes que hay en la partida.
+- __equipo_ganador__, de tipo Equipo(derivada),consultable. Indica el equipo ganador segun el valor de gana_azul, si es true devuelve AZUL y si es false devuelve ROJO.
+- __tipoVictoria__, de tipo TipoVictoria(derivada),consultable. Indica el tipo de partida que fue segun el oro del equipo ganador y el del equipo perdedor.Puede ser REMONTADA,IGUALADA,MUCHA_VENTAJA,VENTAJA_ACEPTABLE,NO_DATA;
+ 
 
 
 **Constructores**: 
