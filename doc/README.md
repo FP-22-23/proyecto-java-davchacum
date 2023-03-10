@@ -28,17 +28,16 @@ blue_win.
 * **Equipos**: En una partida hay dos equipos uno rojo y otro azul habiendo 5 jugadores por equipo.
 
 * **Oro**: Representa la cantidad oro obtenido por parte de un jugador, este recurso es empleado para comprar mejoras durante la partida.
-Hay varios factores que intervienen en el transcurso de una partida, pero por normal general el equipo con mas oro (la suma del oro de los 5 miembros de un equipo) es 
-el que suele ganar o el que tiene mas posibilidades de ganar, por tanto mediante este dato podemos tratar de predecir el equipo ganador en una partida.
+Hay varios factores que intervienen en el transcurso de una partida, pero por normal general el equipo con mas oro (la suma del oro de los 5 miembros de un equipo) es el que suele ganar o el que tiene mas posibilidades de ganar, por tanto mediante este dato podemos tratar de predecir el equipo ganador en una partida.
 
 * **Champs(Campeones)**: Son los personajes jugables que tiene cada jugador, en el juego original hay un total de 162 personajes.
 
-* **Monster**: Junto al oro, los monstruos es una de las fuentes mediante la cual se puede tratar de predecir el equipo ganador de una partida. En los primeros 15
-minutos solo se pueden matar 3 monstruos en total(la suma de los monstruos de cada equipo tiene que ser menor o igual que tres).
+* **Monster**: Junto al oro, los monstruos es una de las fuentes mediante la cual se puede tratar de predecir el equipo ganador de una partida. En los primeros 15 minutos solo se pueden matar 3 monstruos en total(la suma de los monstruos de cada equipo tiene que ser menor o igual que tres).
 
 * **Nivel**: A lo largo de la partida vas subiendo de nivel comenzando por el nivel 1 y teniendo como maximo nivel 18.
 
 * **Asistencia**:El termino de asistencia se refiere a que has ayudado a matar a un enemigo pero tu compañero es el que le ha dado el ultimo golpe para matarlo.
+
 
 
 
@@ -78,55 +77,82 @@ Los tipos que se han implementado en el proyecto son los siguientes:
 
 ### Tipo Base
 
-El tipo base del proyecto es de tipo Partida, en donde se almacena la informacion de una partida de los primeros 15 minutos ocurridas en el año 2020 y de rango 
-diamante.
+El tipo base del proyecto es de tipo Partida, en donde se almacena la informacion de una partida de los primeros 15 minutos ocurridas en el año 2020 y de rango  diamante.
 
 **Propiedades**:
 
-- __id_partida__, de tipo Long,consultable y modificable. Indica un numero identificativo de la partida de 10 digitos.
-- __gana_azul__, de tipo Boolean,consultable y modificable. Devuelve true si ganó el equipo azul, y devuelve false si ganó el equipo rojo.
-- __oro_equipo_azul__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos rojos matados por parte del equipo azul.
-- __rivales_matados_azul__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos rojos matados por parte del equipo azul.
-- __monstruos_matados_azul__, de tipo Double, consultable y modificable. Indica la suma de los monstruos matados por parte del equipo azul.
-- __media_nivel_azul__, de tipo Integer, consultable y modificable. Indica la media de nivel del equipo azul.
-- __oro_equipo_rojo__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos azules matados por parte del equipo rojo.
-- __rivales_matados_rojo__, de tipo Integer,consultable y modificable. Indica la suma de los enemigos azules matados por parte del equipo rojo.
-- __monstruos_matados_rojo__, de tipo Double, consultable y modificable. Indica la suma de los monstruos matados por parte del equipo rojo.
-- __media_nivel_rojo__, de tipo Integer, consultable y modificable. Indica la media de nivel del equipo rojo.
-- __fecha_partida__, de tipo LocalDate,consultable y modificable. Indica el dia en el que tiene lugar la partida.
-- __rango__, de tipo Rango,consultable y modificable. Indica la categoria de la partida pudiendo ser 	DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I. 
-- __server__, de tipo String,consultable y modificable. Indica el servidor en el que tiene lugar la partida puede ser tanto un pais, una region o un continente.
-- __mejor_jugador__, de tipo Player(auxiliar),consultable y modificable. Indica los datos del mejor jugador de la partida.
-- __personajes__, de tipo List<String>,consultable y modificable. Indica algunos personajes que hay en la partida.
-- __equipo_ganador__, de tipo Equipo(derivada),consultable. Indica el equipo ganador segun el valor de gana_azul, si es true devuelve AZUL y si es false devuelve ROJO.
-- __tipoVictoria__, de tipo TipoVictoria(derivada),consultable. Indica el tipo de partida que fue segun el oro del equipo ganador y el del equipo perdedor.Puede ser REMONTADA,IGUALADA,MUCHA_VENTAJA,VENTAJA_ACEPTABLE,NO_DATA;
+- _id_partida_, de tipo Long,consultable y modificable. Indica un numero identificativo de la partida de 10 digitos.
+- _gana_azul_, de tipo Boolean,consultable y modificable. Devuelve true si ganó el equipo azul, y devuelve false si ganó el equipo rojo.
+- _oro_equipo_azul_, de tipo Integer,consultable y modificable. Indica la suma de los enemigos rojos matados por parte del equipo azul.
+- _rivales_matados_azul_, de tipo Integer,consultable y modificable. Indica la suma de los enemigos rojos matados por parte del equipo azul.
+- _monstruos_matados_azul_, de tipo Double, consultable y modificable. Indica la suma de los monstruos matados por parte del equipo azul.
+- _media_nivel_azul_, de tipo Integer, consultable y modificable. Indica la media de nivel del equipo azul.
+- _oro_equipo_rojo_, de tipo Integer,consultable y modificable. Indica la suma de los enemigos azules matados por parte del equipo rojo.
+- _rivales_matados_rojo_, de tipo Integer,consultable y modificable. Indica la suma de los enemigos azules matados por parte del equipo rojo.
+- _monstruos_matados_rojo_, de tipo Double, consultable y modificable. Indica la suma de los monstruos matados por parte del equipo rojo.
+- _media_nivel_rojo_, de tipo Integer, consultable y modificable. Indica la media de nivel del equipo rojo.
+- _fecha_partida_, de tipo LocalDate,consultable y modificable. Indica el dia en el que tiene lugar la partida.
+- _rango_, de tipo Rango,consultable y modificable. Indica la categoria de la partida pudiendo ser	DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I. 
+- _server_, de tipo String,consultable y modificable. Indica el servidor en el que tiene lugar la partida puede ser tanto un pais, una region o un continente.
+- _mejor_jugador_, de tipo Player(auxiliar),consultable y modificable. Indica los datos del mejor jugador de la partida.
+- _personajes_, de tipo List<String>,consultable y modificable. Indica algunos personajes que hay en la partida.
  
-
+**Propiedades derivadas(No estan en el constructor)**:
+ 
+- _equipo_ganador_, de tipo Equipo(derivada),consultable. Indica el equipo ganador segun el valor de gana_azul, si es true devuelve AZUL y si es false devuelve ROJO.
+- _tipoVictoria_, de tipo TipoVictoria(derivada),consultable. Indica el tipo de partida que fue segun el oro del equipo ganador y el del equipo perdedor.Puede ser  REMONTADA,IGUALADA,MUCHA_VENTAJA,VENTAJA_ACEPTABLE,NO_DATA.
+ 
 
 **Constructores**: 
 
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
+- C1: Tiene un parámetro por cada propiedad básica del tipo.
+- C2: Crea un objeto de tipo ```Partida``` a partir de los siguientes parámetros: ```Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,Integer rivales_matados_azul,Integer oro_equipo_rojo,Integer rivales_matados_rojo,LocalDate fecha_partida,Rango rango_partida,String server```.
+- C3: Crea un objeto de tipo ```Partida``` a partir de los siguientes parámetros: ```Long id_partida,Boolean gana_azul,LocalDate fecha_partida,Rango rango_partida,String server```.
 
 **Restricciones**:
  
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
-- 
-**Criterio de igualdad**: Describir el criterio de igualdad
+- R1: El id de la partida debe estar entre 3300000000 y 3500000000.
+- R2: Media nivel de cualquier equipo debe estar entre 1.0 y 18.0.
+- R3: La suma de Monstruos matados equipo rojo y equipo azul tiene que ser menor o igual a tres .
+- R4: La fecha de partida debe ser despues del 31/12/2019 y antes del 1/1/2021, es decir que ocurra en el año 2022.
+- R5: La suma de los enemigos matados mas las asistencias del jugador, debe ser menor o igual al numero total de enemigos matados del equipo al que pertenece el jugador.
+- R6: Todos los integer tanto en el tipo base como en el tipo auxiliar no pueden ser un valor negativo.
 
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
+**Criterio de igualdad**: En una partida se considera que jugaron las mismas personas respecto a otra si: 
+ 
+ * 1º La partida se jugó el mismo dia.
+ * 2º La partida era del mismo Rango(DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I).
+ * 3º La partida tuvo lugar en el mismo servidor.
+ 
+ Si se cumple estas condiciones en dos partidas, se considera que ese mismo dia coindicidieron las mismas personas en 2 partidas.
+ 
+ 
+ 
+**Criterio de ordenación**: Por fecha_partida y por id_partida.
 
 **Otras operaciones**:
  
--	_método 1_: Descripción del método 1.
-- ...
+-	_parseaTipoVictoria_: Empleado para reutilizar codigo en la propiedad derivada tipoVictoria.
+- _check...._: Empleado en los Checkers para reutilizar codigo y reducirlo en los constructores y setters.
 
 #### Tipos auxiliares
-Descripción de los tipos auxiliares que sean necesarios añadir al proyecto.
 
+ El tipo Player almacena los datos del mejor jugador del tipo base Partida. Para la implementacion de este tipo se ha empleado un record por tanto todas sus propiedades son unicamenten consultables.
+
+##### Propiedades tipo auxiliar
+ 
+- _bestplayer_, de tipo String, el nombre de usuario del mejor jugador de la partida.
+- _enemiesKilled_, de tipo Integer, representa el numero de enemigos matados por parte del jugador
+- _deads_, de tipo Integer, representa las muertes del jugador.
+- _assists_, de tipo Integer, representa el numero de asistencia del jugadores
+- _team_, de tipo Equipo, representa al equipo al que pertenece el jugador, puede ser ROJO o AZUL.
+
+ 
+ Hasta aqui la primera entrega
+ 
+ 
+ 
+ 
 ### Factoría
 Descripción breve de la factoría.
 
