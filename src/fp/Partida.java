@@ -23,6 +23,7 @@ public class Partida implements Comparable <Partida>{
 	private Double media_nivel_rojo;
 	private LocalDate fecha_partida;
 	private Rango rango_partida;
+	private String server;
 	private Player mejor_jugador;
 	private List<String> personajes;
 	
@@ -31,7 +32,7 @@ public class Partida implements Comparable <Partida>{
 			Integer rivales_matados_azul,Integer monstruos_matados_azul,Double media_nivel_azul,
 			Integer oro_equipo_rojo,Integer rivales_matados_rojo,
 			Integer monstruos_matados_rojo,Double media_nivel_rojo,LocalDate fecha_partida,
-			Rango rango_partida,Player mejor_jugador,List<String> personajes) {
+			Rango rango_partida,String server,Player mejor_jugador,List<String> personajes) {
 		
 		checkId_partida(id_partida);
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
@@ -52,6 +53,7 @@ public class Partida implements Comparable <Partida>{
 		this.media_nivel_rojo=media_nivel_rojo;
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
+		this.server=server;
 		this.mejor_jugador=mejor_jugador;
 		this.personajes=new LinkedList<String>();
 		
@@ -59,7 +61,7 @@ public class Partida implements Comparable <Partida>{
 	}
 	//CONSTRUCTOR 2
 	public Partida(Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,Integer rivales_matados_azul,
-			Integer oro_equipo_rojo,Integer rivales_matados_rojo,LocalDate fecha_partida,Rango rango_partida) {
+			Integer oro_equipo_rojo,Integer rivales_matados_rojo,LocalDate fecha_partida,Rango rango_partida,String server) {
 		
 		checkId_partida(id_partida);
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
@@ -79,12 +81,13 @@ public class Partida implements Comparable <Partida>{
 		this.media_nivel_rojo=null;
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
+		this.server=server;
 		this.mejor_jugador=null;
 		this.personajes=null;
 		
 		
 	}
-	public Partida(Long id_partida,Boolean gana_azul,LocalDate fecha_partida,Rango rango_partida) {
+	public Partida(Long id_partida,Boolean gana_azul,LocalDate fecha_partida,Rango rango_partida,String server) {
 		checkId_partida(id_partida);
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
 		checkAsesinato_player_partida(rivales_matados_azul,rivales_matados_rojo,mejor_jugador);
@@ -103,6 +106,7 @@ public class Partida implements Comparable <Partida>{
 		this.media_nivel_rojo=null;
 		this.fecha_partida=fecha_partida;
 		this.rango_partida=rango_partida;
+		this.server=server;
 		this.mejor_jugador=null;
 		this.personajes=null;
 			
@@ -244,6 +248,12 @@ public class Partida implements Comparable <Partida>{
 	public void setRango_partida(Rango rango_partida) {
 		this.rango_partida = rango_partida;
 	}
+	public String getServer() {
+		return server;
+	}
+	public void setServer(String server) {
+		this.server = server;
+	}
 	
 	public Player getMejor_jugador() {
 		return mejor_jugador;
@@ -324,10 +334,13 @@ public class Partida implements Comparable <Partida>{
 				+", mejor_jugador=" + getMejor_jugador() +", personajes="+getPersonajes()+"]";
 	}
 
-	public int hashCode() {
-		return Objects.hash(gana_azul, fecha_partida);
-	}
+	
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(fecha_partida, rango_partida, server);
+	}
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -336,9 +349,9 @@ public class Partida implements Comparable <Partida>{
 		if (getClass() != obj.getClass())
 			return false;
 		Partida other = (Partida) obj;
-		return Objects.equals(fecha_partida, other.fecha_partida) && rango_partida == other.rango_partida;
+		return Objects.equals(fecha_partida, other.fecha_partida) && rango_partida == other.rango_partida
+				&& Objects.equals(server, other.server);
 	}
-
 	public int compareTo(Partida p) {
 		int res=getFecha_partida().compareTo(p.getFecha_partida());
 		if(res==0) {
@@ -348,6 +361,7 @@ public class Partida implements Comparable <Partida>{
 		return res;
 		
 	}
+	
 	
 	
 	
