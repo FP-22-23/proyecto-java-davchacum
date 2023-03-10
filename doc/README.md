@@ -96,6 +96,9 @@ El tipo base del proyecto es de tipo Partida, en donde se almacena la informacio
 - _server_, de tipo String,consultable y modificable. Indica el servidor en el que tiene lugar la partida puede ser tanto un pais, una region o un continente.
 - _mejor_jugador_, de tipo Player(auxiliar),consultable y modificable. Indica los datos del mejor jugador de la partida.
 - _personajes_, de tipo List<String>,consultable y modificable. Indica algunos personajes que hay en la partida.
+ 
+**Propiedades derivadas(No estan en el constructor)**:
+ 
 - _equipo_ganador_, de tipo Equipo(derivada),consultable. Indica el equipo ganador segun el valor de gana_azul, si es true devuelve AZUL y si es false devuelve ROJO.
 - _tipoVictoria_, de tipo TipoVictoria(derivada),consultable. Indica el tipo de partida que fue segun el oro del equipo ganador y el del equipo perdedor.Puede ser  REMONTADA,IGUALADA,MUCHA_VENTAJA,VENTAJA_ACEPTABLE,NO_DATA.
  
