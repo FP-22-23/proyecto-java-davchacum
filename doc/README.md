@@ -39,7 +39,7 @@ blue_win.
 Hay varios factores que intervienen en el transcurso de una partida, pero por normal general el equipo con mas oro (la suma del oro de los 5 miembros de un equipo) es 
 el que suele ganar o el que tiene mas posibilidades de ganar, por tanto mediante este dato podemos tratar de predecir el equipo ganador en una partida.
 
-* **Champs(Campeones): Son los personajes jugables que tiene cada jugador y se les llama campeones, en el juego original hay un total de 162 personajes.
+* **Champs(Campeones)**: Son los personajes jugables que tiene cada jugador y se les llama campeones, en el juego original hay un total de 162 personajes.
 
 * **Minions**: Es una de las fuentes principales de obtener oro, cada vez que matas uno te da una cantidad de oro.
 
