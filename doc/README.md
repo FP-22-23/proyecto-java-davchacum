@@ -116,9 +116,9 @@ El tipo base del proyecto es de tipo Partida, en donde se almacena la informacio
 
 **Criterio de igualdad**: En una partida se considera que jugaron las mismas personas respecto a otra si: 
  
- 1º La partida se jugó el mismo dia.
- 2º La partida era del mismo Rango(DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I).
- 3º La partida tuvo lugar en el mismo servidor.
+ * 1º La partida se jugó el mismo dia.
+ * 2º La partida era del mismo Rango(DIAMANTE_IV,DIAMANTE_III,DIAMANTE_II o DIAMANTE_I).
+ * 3º La partida tuvo lugar en el mismo servidor.
  
  Si se cumple estas condiciones en dos partidas, se considera que ese mismo dia coindicidieron las mismas personas en 2 partidas.
  
