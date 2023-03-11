@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-import common.Player;
+import fp.common.Player;
 import fp.tipos.Rango;
 import fp.tipos.TipoVictoria;
 import fp.utiles.Checkers;

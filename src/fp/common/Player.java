@@ -1,4 +1,4 @@
-package common;
+package fp.common;
 
 import java.util.Objects;
 
