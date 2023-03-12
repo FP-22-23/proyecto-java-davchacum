@@ -38,7 +38,7 @@ Hay varios factores que intervienen en el transcurso de una partida, pero por no
 
 * **Asistencia**:El termino de asistencia se refiere a que has ayudado a matar a un enemigo pero tu compañero es el que le ha dado el ultimo golpe para matarlo.
 
-
+### Estructura
 
 
 El dataset MatchTimelinesFirst15(simplificado) está compuesto por 21 columnas, con la siguiente descripción:
