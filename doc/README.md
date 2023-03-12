@@ -17,7 +17,7 @@ El objetivo de este dataset es analizar y recoger los datos de los primeros 15 m
     
 ## Estructura del *dataset*
 
-El dataset original ha sido descargado de kaggle (https://www.kaggle.com/datasets/benfattori/league-of-legends-diamond-games-first-15-minutes). Originalmente el dataset contaba con 19 columnas y 46000 filas de las cuales se han hecho algunos ajustes para hacer el csv mas sencillo y mas claro, debido a la cantidad de datos que poseia. Actualmente se ha creado una version simplificada y otra extendida del csv, pero se va a emplear de momento la version simplificada la cual cuenta con 18 filas y 20 columnas(5 de ellas pertenecen a un tipo auxiliar de tipo Player). Se han eliminado columnas del csv original como blueDragonKills y red, y blueTowersDestroyed y red. El proyecto consta de de una gran variedad de tipos(String,Double,Integer,List,Player(auxiliar),Enum y Boolean). El objetivo de este dataset es tratar de predecir el transcurso de una partida sabiendo unicamente las estadisticas/datos de los primeros 15 minutos.
+El dataset original ha sido descargado de kaggle (https://www.kaggle.com/datasets/benfattori/league-of-legends-diamond-games-first-15-minutes). Originalmente el dataset contaba con 19 columnas y 46000 filas de las cuales se han hecho algunos ajustes para hacer el csv mas sencillo y mas claro, debido a la cantidad de datos que poseia. Actualmente se ha creado una version simplificada y otra extendida del csv, pero se va a emplear de momento la version simplificada la cual cuenta con 20 filas y 19 columnas(5 de ellas pertenecen a un tipo auxiliar de tipo Player). Se han eliminado columnas del csv original como blueDragonKills y red, y blueTowersDestroyed y red. El proyecto consta de de una gran variedad de tipos(String,Double,Integer,List,Player(auxiliar),Enum y Boolean). El objetivo de este dataset es tratar de predecir el transcurso de una partida sabiendo unicamente las estadisticas/datos de los primeros 15 minutos.
 
 Antes de explicar cada tipo voy a especificar algunos terminos que pueden ser algo confusos sin una previa explicación:
 
@@ -41,7 +41,7 @@ Hay varios factores que intervienen en el transcurso de una partida, pero por no
 ### Estructura
 
 
-El dataset MatchTimelinesFirst15(simplificado) está compuesto por 21 columnas, con la siguiente descripción:
+El dataset MatchTimelinesFirst15(simplificado) está compuesto por 19 columnas, con la siguiente descripción:
 
 * **matchId**: de tipo entero largo, representa un numero identificativo de la partida de 10 digitos.
 * **blue_win**: de tipo boleano, devuelve true si ganó el equipo azul, y devuelve false si ganó el equipo rojo.
