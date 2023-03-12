@@ -19,7 +19,7 @@ El objetivo de este dataset es analizar y recoger los datos de los primeros 15 m
 
 El dataset original ha sido descargado de kaggle (https://www.kaggle.com/datasets/benfattori/league-of-legends-diamond-games-first-15-minutes). Originalmente el dataset contaba con 19 columnas y 46000 filas de las cuales se han hecho algunos ajustes para hacer el csv mas sencillo y mas claro, debido a la cantidad de datos que poseia. Actualmente se ha creado una version simplificada y otra extendida del csv, pero se va a emplear de momento la version simplificada la cual cuenta con 20 filas y 19 columnas(5 de ellas pertenecen a un tipo auxiliar de tipo Player). Se han eliminado columnas del csv original como blueDragonKills y red, y blueTowersDestroyed y red. El proyecto consta de de una gran variedad de tipos(String,Double,Integer,List,Player(auxiliar),Enum y Boolean). El objetivo de este dataset es tratar de predecir el transcurso de una partida sabiendo unicamente las estadisticas/datos de los primeros 15 minutos.
 
-Antes de explicar cada tipo voy a especificar algunos terminos que pueden ser algo confusos sin una previa explicación:
+Antes de explicar cada tipo voy a dejae claros algunos terminos que pueden ser algo confusos sin una previa explicación:
 
 
 * **Partida**: Cada juego suele durar entre 20 o 30 minutos, pero el objetivo de este dataset es tratar de ver y analizar el transcurso de una partida con unicamente datos de los primeros 15 minutos de juego. El unico dato que no corresponde a estos primeros 15 minutos de partida es el del equipo ganador mediante el tipo de dato 
