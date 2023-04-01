@@ -2,7 +2,8 @@ package fp;
 
 //ENTREGA 1
 import java.time.LocalDate;
-import java.util.LinkedList;
+import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -66,7 +67,7 @@ public class Partida implements Comparable <Partida>{
 		this.rango_partida=rango_partida;
 		this.server=server;
 		this.mejor_jugador=mejor_jugador;
-		this.personajes=new LinkedList<String>();
+		this.personajes=new ArrayList<String>();
 		
 		
 	}
