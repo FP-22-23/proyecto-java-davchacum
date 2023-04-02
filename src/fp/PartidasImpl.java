@@ -33,6 +33,10 @@ private List<Partida> Partidas;
 	public String toString() {
 		return "Partidas [Partidas=" + Partidas + "]";
 	}
+	public  void añadirPartida(Partida p){
+		Partidas.add(p);
+		
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(Partidas);

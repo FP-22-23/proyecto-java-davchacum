@@ -8,8 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+import java.util.stream.Stream;
 
 import fp.common.Player;
 import fp.tipos.Equipo;
@@ -17,12 +17,15 @@ import fp.tipos.Rango;
 import fp.utiles.Checkers;
 
 
+
 public class FactoriaPartidas {
 
 	public static Partidas leerPartidas(String rutaFichero) {
+		
+		
 		Partidas res=null;
 		try {
-			List<Partida> sv=Files.lines(Paths.get(rutaFichero)).skip(1).map(FactoriaPartidas::parsearPartida).collect(Collectors.toList());;
+			Stream<Partida> sv=Files.lines(Paths.get(rutaFichero)).skip(1).map(FactoriaPartidas::parsearPartida);
 			res= new PartidasImpl(sv);
 		}
 		catch(IOException e) {
@@ -67,7 +70,7 @@ public class FactoriaPartidas {
 		Equipo equipo=Equipo.valueOf(trozos[17].trim());
 		Player mejor_jugador= new Player(nombre,rivales_matados,muertes,asistencias,equipo);
 		List<String> personajes=parseLista(trozos[18]);
-		System.out.println(personajes);
+		
 		return new Partida(id_partida,gana_azul,oro_equipo_azul,rivales_matados_azul,monstruos_matados_azul,
 				media_nivel_azul,oro_equipo_rojo,rivales_matados_rojo,
 				monstruos_matados_rojo,media_nivel_rojo,fecha_partida,

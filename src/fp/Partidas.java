@@ -11,5 +11,6 @@ public interface Partidas {
 	int hashCode();
 
 	boolean equals(Object obj);
+	void añadirPartida(Partida p);
 
 }

@@ -41,7 +41,7 @@ public class Partida implements Comparable <Partida>{
 			Integer monstruos_matados_rojo,Double media_nivel_rojo,LocalDate fecha_partida,
 			Rango rango_partida,String server,Player mejor_jugador,List<String> personajes) {
 		
-		System.out.println(personajes);
+
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
 		checkAsesinato_player_partida(rivales_matados_azul,rivales_matados_rojo,mejor_jugador);
 		
@@ -370,7 +370,7 @@ public class Partida implements Comparable <Partida>{
 				+ getMonstruos_matados_azul() + ", media_nivel_azul="+ getMedia_nivel_azul() + ", oro_equipo_rojo=" 
 				+ getOro_equipo_rojo() + ", rivales_matados_rojo="+ getRivales_matados_rojo() 
 				+ ", monstruos_matados_rojo=" + getMonstruos_matados_rojo() + ", media_nivel_rojo=" 
-				+ getMedia_nivel_rojo() + ", fecha_partida=" + getFecha_partida()+ ", rango_partida"+getRango_partida()
+				+ getMedia_nivel_rojo() + ", fecha_partida=" + getFecha_partida()+ ", rango_partida="+getRango_partida()
 				+", server="+getServer()+", mejor_jugador=" + getMejor_jugador() +", personajes="+getPersonajes()+"]";
 	}
 
