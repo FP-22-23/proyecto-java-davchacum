@@ -41,7 +41,7 @@ public class Partida implements Comparable <Partida>{
 			Integer monstruos_matados_rojo,Double media_nivel_rojo,LocalDate fecha_partida,
 			Rango rango_partida,String server,Player mejor_jugador,List<String> personajes) {
 		
-		
+		System.out.println(personajes);
 		checkMonstruos_matados(monstruos_matados_azul,monstruos_matados_rojo);
 		checkAsesinato_player_partida(rivales_matados_azul,rivales_matados_rojo,mejor_jugador);
 		
@@ -67,7 +67,7 @@ public class Partida implements Comparable <Partida>{
 		this.rango_partida=rango_partida;
 		this.server=server;
 		this.mejor_jugador=mejor_jugador;
-		this.personajes=new ArrayList<String>();
+		this.personajes=personajes;
 		
 		
 	}

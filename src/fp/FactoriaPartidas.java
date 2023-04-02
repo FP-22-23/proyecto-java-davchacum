@@ -67,7 +67,7 @@ public class FactoriaPartidas {
 		Equipo equipo=Equipo.valueOf(trozos[17].trim());
 		Player mejor_jugador= new Player(nombre,rivales_matados,muertes,asistencias,equipo);
 		List<String> personajes=parseLista(trozos[18]);
-		
+		System.out.println(personajes);
 		return new Partida(id_partida,gana_azul,oro_equipo_azul,rivales_matados_azul,monstruos_matados_azul,
 				media_nivel_azul,oro_equipo_rojo,rivales_matados_rojo,
 				monstruos_matados_rojo,media_nivel_rojo,fecha_partida,
@@ -76,7 +76,7 @@ public class FactoriaPartidas {
 		
 	}
 	public static  List<String> parseLista(String cadena){
-		System.out.println(cadena);
+
 		String [] trozos=cadena.split(",");
 		List<String> lista=new ArrayList<>();
 		for(String t:trozos) {
@@ -84,6 +84,7 @@ public class FactoriaPartidas {
 			
 			
 		}
+		
 		return lista;
 		
 	}
