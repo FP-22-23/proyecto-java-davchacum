@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 import fp.common.Player;
+import fp.tipos.Equipo;
 import fp.tipos.Rango;
 import fp.tipos.TipoVictoria;
 import fp.utiles.Checkers;
@@ -306,10 +307,10 @@ public class Partida implements Comparable <Partida>{
 	//PROPIEDADES DERIVADAS
 	
 	//PROPIEDAD DERIVADA 1
-	public String getEquipo_ganador() {
-		String res="ROJO";
+	public Equipo getEquipo_ganador() {
+		Equipo res=Equipo.ROJO;
 		if(gana_azul==true) {
-			res="AZUL";	
+			res=Equipo.AZUL;	
 		}
 		return res;
 		

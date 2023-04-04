@@ -15,12 +15,24 @@ import fp.common.Player;
 import fp.tipos.Equipo;
 import fp.tipos.Rango;
 import fp.utiles.Checkers;
+import fp.utiles.Ficheros;
 
 
 
 public class FactoriaPartidas {
+	
+	public static List<Partida> leerPartidas(String fichero){
+		List<Partida> res = new ArrayList<>();
+		List<String> lineas = Ficheros.leeFichero("Error leyendo fichero",fichero);	
+		lineas.remove(0);
+		for (String linea:lineas) {
+			Partida p = parsearPartida(linea);
+			res.add(p);
+		}
+		return res;
+	}
 
-	public static Partidas leerPartidas(String rutaFichero) {
+	public static Partidas leerPartidas2(String rutaFichero) {
 		
 		
 		Partidas res=null;
@@ -35,19 +47,9 @@ public class FactoriaPartidas {
 		
 	}
 	
+	
 	public static Partida parsearPartida(String lineaCSV) {
-//			Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,
-//			Integer rivales_matados_azul,Integer monstruos_matados_azul,
-//			Integer oro_equipo_rojo,Integer rivales_matados_rojo,
-//			Integer monstruos_matados_rojo,Double media_nivel_azul,
-//			Double media_nivel_rojo,LocalDate fecha_partida,
-//			Rango rango_partida,Player mejor_jugador,List<String> personajes
-		
-//			Long id_partida,Boolean gana_azul,Integer oro_equipo_azul,
-//			Integer rivales_matados_azul,Integer monstruos_matados_azul,Double media_nivel_azul,
-//			Integer oro_equipo_rojo,Integer rivales_matados_rojo,
-//			Integer monstruos_matados_rojo,Double media_nivel_rojo,LocalDate fecha_partida,
-//			Rango rango_partida,String server,Player mejor_jugador,List<String> personajes
+
 		String[] trozos=lineaCSV.split(";");
 		Checkers.check("Error en elementos Partida", trozos.length==19);
 		Long id_partida=Long.valueOf(trozos[0].trim());
