@@ -1,6 +1,7 @@
 package fp;
 
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -9,9 +10,9 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.SortedMap;
-import java.util.SortedSet;
+
 import java.util.TreeMap;
-import java.util.TreeSet;
+
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import fp.tipos.Equipo;
@@ -60,43 +61,48 @@ private List<Partida> partidas;
 		return Objects.equals(partidas, other.partidas);
 	}
 //	Obtener el número de elementos.
+	@Override
 	public Integer getNumeroPartidas() {
 		return partidas.size();		
 	}
 //	Añadir un elemento.
+	@Override
 	public  void añadirPartida(Partida p){
 		partidas.add(p);
 		
 	}
 //	Añadir una colección de elementos.
+	@Override
 	public  void añadirCollecionPartida(Collection<Partida> p){
 		partidas.addAll(p);
 		
 	}
 //	Eliminar un elemento.
+	@Override
 	public  void eliminarPartida(Partida p){
 		partidas.remove(p);
 		
 	}
+	@Override
 	public  void eliminarPartida(int n) {
 		partidas.remove(n);
 		
 	}
+	@Override
 	public Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere(Equipo equipo, Integer rivales_matados) {
 		//Hay alguna partida donde los rivales matados del equipo que superen los rivales matados dados como parametro
 		//todos cumplen prop X?
 		Boolean res=false;
 		for (Partida p:partidas) {
-			
 			if(p.getRivales_matados_azul()>=rivales_matados || p.getRivales_matados_rojo()>=rivales_matados ) {//propiedad
 				res=true;
 				break;
 			}
 		}
-		
 		return res;
 	}
-	public Double mediaParticipacionDelMejorJugador(Rango rango,Equipo equipo ) {
+	@Override
+	public Double mediaRivalesMatadosPorEquipoYRango(Rango rango,Equipo equipo ) {
 		//Las participaciones son la suma de Rivales Matados y Asistencias del Jugador
 		//Por tanto para calcular la media dividimos Las participaciones entre el total de rivales muertos del equipo enemigo
 		//Por ejemplo si en una partida el equipo tiene 8 rivales matados en total y  mejor jugador tiene 2 rivales matados y 2 asistencias 
@@ -131,7 +137,8 @@ private List<Partida> partidas;
 		return res;
 		
 	}
-	public Integer CantidaOroEquipoConMasOroPorRango(Rango rango,Equipo equipo) {
+	@Override
+	public Integer cantidadOroEquipoConMasOroPorRango(Rango rango,Equipo equipo) {
 		//((p.getOro_equipo_rojo()+p.getOro_equipo_azul())-(res.getOro_equipo_rojo()+res.getOro_equipo_azul())>0)
 		Partida res=null;
 		Integer valor=null;
@@ -158,14 +165,12 @@ private List<Partida> partidas;
 			break;
 	
 		}
-		if(res==null) {//Si en el enunciado dice que eleve una excepcion en caso de no encontrar un max
-			throw new NoSuchElementException();
-		}
 		
 		return valor;
 		
 	}
-	public Map<Rango,List<Partida>> agruparPartidasPorRango(Rango rango){
+	@Override
+	public Map<Rango,List<Partida>> agruparPartidasPorRango(){
 		Map<Rango,List<Partida>> res=new HashMap<>();
 		for(Partida p:partidas) {
 			Rango clave=p.getRango_partida();
@@ -183,38 +188,27 @@ private List<Partida> partidas;
 		return res;
 		
 	}
-	public Map<String,Integer> contarPartidasPorMeses(){
+	@Override
+	public SortedMap<Month,Integer> contarPartidasPorMeses(){
 		
-		SortedMap<Integer,Integer> meses_num=new TreeMap<>();
+		SortedMap<Month,Integer> res=new TreeMap<>();
 		for (Partida p:partidas) {
-			Integer clave=p.getFecha_partida().getMonthValue();
-			if(meses_num.containsKey(clave)) {
+			Month clave=p.getFecha_partida().getMonth();
+			if(res.containsKey(clave)) {
 				
-				meses_num.put(clave,meses_num.get(clave) + 1 );
+				res.put(clave,res.get(clave) + 1 );
 				
 			}else {
 				
-				meses_num.put(clave,1);
+				res.put(clave,1);
 			}
 		}
-		Map<String,Integer> res=parseMeses(meses_num);
+		
 		return res;
 		
 			
 	}
-	public Map<String,Integer> parseMeses(SortedMap<Integer,Integer> meses_num){
-		
-		List<String> meses=List.of("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-
-		
-		
-		Map<String,Integer> res=new HashMap<>();
-		for(int mes:meses_num.keySet()) {
-			res.put(meses.get(mes-1), meses_num.get(mes));
-			
-		}
-		return res;
-	}
+	
 }
 
 	
