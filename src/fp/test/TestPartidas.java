@@ -10,21 +10,26 @@ public class TestPartidas {
 		
 		Partidas datos = FactoriaPartidas.leerPartidas2("data/MatchTimelinesFirst15(simplificado).csv");
 		
+		
 		System.out.println("###############################################################################################################");
 		System.out.println("TEST DE LA FUNCION existePartidaDondeRivalesMatadosDeUnEquipoSupere\n");
 		testExistePartidaDondeRivalesMatadosDeUnEquipoSupere(datos,Equipo.AZUL, 15);
+		testExistePartidaDondeRivalesMatadosDeUnEquipoSupere(datos,Equipo.ROJO, 39);
 		System.out.println("###############################################################################################################");
 		System.out.println("TEST DE LA FUNCION mediaRivalesMatadosPorEquipoYRango \n");
 		testMediaRivalesMatadosPorEquipoYRango(datos,Rango.DIAMANTE_III,Equipo.AZUL );
+		testMediaRivalesMatadosPorEquipoYRango(datos,Rango.DIAMANTE_I,Equipo.ROJO );
 		System.out.println("###############################################################################################################");
 		System.out.println("TEST DE LA FUNCION cantidadOroEquipoConMasOroPorRango\n");
 		testCantidadOroEquipoConMasOroPorRango(datos,Rango.DIAMANTE_III,Equipo.AZUL );
+		testCantidadOroEquipoConMasOroPorRango(datos,Rango.DIAMANTE_IV,Equipo.ROJO );
 		System.out.println("###############################################################################################################");
 		System.out.println("TEST DE LA FUNCION agruparPartidasPorRango \n");
 		testAgruparPartidasPorRango(datos);
 		System.out.println("###############################################################################################################");
 		System.out.println("TEST DE LA FUNCION contarPartidasPorMeses\n");
 		testContarPartidasPorMeses(datos);
+		
 	}
 	
 	
