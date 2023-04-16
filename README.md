@@ -154,38 +154,41 @@ El tipo base del proyecto es de tipo Partida, en donde se almacena la informacio
  
  
 ### Factoría
-Descripción breve de la factoría.
+Clase factoria empleada para construir elementos de tipos Partidas.
 
-- _método 1_: Descripción del método 1.
--	_método 2_: Descripción del método 2.
+- _leerPartidas(String fichero)_: Crea un objeto de tipo Partidas a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
+-	_Partidas leerPartidas2(String rutaFichero)_: Crea un objeto de tipo List<Partida> a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro(su funcionamiento es similar al metodo anterior.
+-	_Partidas parsearPartida(String lineaCSV)_: Dado una cadena String construye un objeto de tipo Partida.
 
-### Tipo Contenedor
+### Tipo Contenedor-Partidas
 
-Descripción breve del tipo contenedor.
+Contenedor que almacena una lista de partidas para convertirlo en una clase mas interfaz Partidas.
 
 **Propiedades**:
 
-- _propiedad1_, de tipo \<Tipo1\>, consultable. 
-- _propiedad2_, de tipo \<Tipo2\>, consultable y modificable. 
-- ...
-- 
+- partidas, de tipo List<Partida>, consultable. Lista de partidas del videojuego League of Legends
+- numeroPartidass, de tipo Integer, consultable. Devuelve el numero de partidas del contenedor.
+
 **Constructores**: 
 
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
+- C1: Constructor por defecto. Creal un objeto de tipo Partidas vacio.
+- C2: Constructor con un parámetro de tipo Collection<Partida>. Crea un objeto de tipo Partidas mediante las partidas de la collecion dadas como parametro.
+- C3: Constructor con un parámetro de tipo Stream<Partida>. Crea un objeto de tipo Partidas con las partidas incluidas en el Stream dado como parametro.
 
-**Restricciones**:
- 
-- R1: Descripción de la restricción 1.
-- R2: Descripción de la restricción 2.
-- ...
-- 
-**Criterio de igualdad**: Describir el criterio de igualdad
+**Criterio de igualdad**: Dos Partidas seran iguales si sus propiedades Partida lo son.
 
-**Criterio de ordenación**: Describir el criterio de ordenación (si lo hay).
 
 **Otras operaciones**:
  
--	_método 1_: Descripción del método 1.
-- ...
+-	_Integer getNumeroPartidas_: Devuelve el numero del contenedor.
+-	_void añadirPartida_: Añade una partida al contenedor.
+-	_void añadirCollecionPartida_: Añade una coleccion de partidas al contenedor.
+-	_void eliminarPartida_: Elimina una partida del contenedor, mediante un numero o Partida.
+-	_Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere_: Devuelve true si el equipo supera los rivales matados dados como parámetros en al menos un objeto del csv.
+-	_Double mediaRivalesMatadosPorEquipoYRango_: Devuelve la media de los rivales matados dado un rango y un equipo como parámetro.
+-	_Integer cantidadOroEquipoConMasOroPorRango_: Devuelve la maxima cantidad de oro que ha obtenido un equipo en un rango dados como parámetro.
+-	_Map<Rango,List<Partida>> agruparPartidasPorRango_: Devuelve un Map en donde la clave es el rango y el valor las partidas de ese rango. 
+-	SortedMap<Month,Integer> contarPartidasPorMeses_: Devuelve un SortedMap en donde la clave son los meses y el valor el numero de partidas que se han jugado en ese mes.
+
+Hasta aquí la entrega 2
+
