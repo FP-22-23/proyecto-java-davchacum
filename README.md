@@ -185,7 +185,7 @@ Contenedor que almacena una lista de partidas para convertirlo en una clase mas 
 -	_void añadirCollecionPartida_: Añade una coleccion de partidas al contenedor.
 -	_void eliminarPartida_: Elimina una partida del contenedor, mediante un numero o Partida.
 -	_Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere_: Devuelve true si el equipo supera los rivales matados dados como parámetros en al menos un objeto del csv.
--	_Double mediaRivalesMatadosPorEquipoYRango_: Devuelve la media de los rivales matados dado un rango y un equipo como parámetro.
+-	_Double mediaRivalesMatadosPorEquipoYRango_: Devuelve la media de los rivales matados dado un rango y un equipo dados como parámetro.
 -	_Integer cantidadOroEquipoConMasOroPorRango_: Devuelve la maxima cantidad de oro que ha obtenido un equipo en un rango dados como parámetro.
 -	_Map<Rango,List<Partida>> agruparPartidasPorRango_: Devuelve un Map en donde la clave es el rango y el valor las partidas de ese rango. 
 -	SortedMap<Month,Integer> contarPartidasPorMeses_: Devuelve un SortedMap en donde la clave son los meses y el valor el numero de partidas que se han jugado en ese mes.
