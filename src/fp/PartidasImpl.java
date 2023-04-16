@@ -98,7 +98,7 @@ private List<Partida> partidas;
 		/**
 		 * 
 		 * @param equipo y rivales_matados
-		 * @return true si el equipo supere los rivales matados en al menos un objeto del csv.
+		 * @return true si el equipo supera los rivales matados dados como parámetros en al menos un objeto del csv.
 		 */
 		Boolean res=false;
 		for (Partida p:partidas) {
@@ -114,7 +114,7 @@ private List<Partida> partidas;
 		/**
 		 * 
 		 * @param equipo y rivales_matados
-		 * @return media de los rivales matados dado un rango y un equipo.
+		 * @return media de los rivales matados dado un rango y un equipo dados como parámetro.
 		 */
 		Double cont=0.0;
 		Double suma=0.0;
@@ -151,7 +151,7 @@ private List<Partida> partidas;
 		/**
 		 * 
 		 * @param equipo y rivales_matados
-		 * @return la maxima cantidad de oro que ha obtenido en equipo en un rango.
+		 * @return la maxima cantidad de oro que ha obtenido un equipo en un rango dados como parámetro.
 		 */		
 		Partida res=null;
 		Integer valor=null;
@@ -186,7 +186,7 @@ private List<Partida> partidas;
 	public Map<Rango,List<Partida>> agruparPartidasPorRango(){
 		/**
 		 * 
-		 * @return devuelve un Map en donde la clave es el rango y el valos las partidas de ese rango.
+		 * @return Map en donde la clave es el rango y el valor las partidas de ese rango.
 		 */
 		Map<Rango,List<Partida>> res=new HashMap<>();
 		for(Partida p:partidas) {
@@ -209,7 +209,7 @@ private List<Partida> partidas;
 	public SortedMap<Month,Integer> contarPartidasPorMeses(){
 		/**
 		 * 
-		 * @return devuelve un SortedMap en donde la clave son los meses y el valor el numero de partidas que se han jugado en ese mes.
+		 * @return SortedMap en donde la clave son los meses y el valor el numero de partidas que se han jugado en ese mes.
 		 */
 		
 		SortedMap<Month,Integer> res=new TreeMap<>();
