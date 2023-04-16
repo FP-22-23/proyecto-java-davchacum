@@ -159,6 +159,7 @@ Clase factoria empleada para construir elementos de tipos Partidas.
 - _leerPartidas(String fichero)_: Crea un objeto de tipo Partidas a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro.
 -	_Partidas leerPartidas2(String rutaFichero)_: Crea un objeto de tipo List<Partida> a partir de la información recogida en el archivo csv, cuya ruta se da como parámetro(su funcionamiento es similar al metodo anterior.
 -	_Partidas parsearPartida(String lineaCSV)_: Dado una cadena String construye un objeto de tipo Partida.
+-	_List<String> parsearLista(String lineaCSV)_: Dado una cadena String devuelve una lista
 
 ### Tipo Contenedor-Partidas
 
