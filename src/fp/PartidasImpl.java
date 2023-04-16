@@ -182,7 +182,7 @@ private List<Partida> partidas;
 		return valor;
 		
 	}
-	//METODO MAP QUE TIENE DE VALOR UN LIST DE LA PROPIEDAD DE TIPO BASE
+	//METODO DE AGRUPACION QUE DEVUELVE UN MAP
 	public Map<Rango,List<Partida>> agruparPartidasPorRango(){
 		/**
 		 * 
