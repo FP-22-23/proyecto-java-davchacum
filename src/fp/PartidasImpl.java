@@ -40,7 +40,7 @@ private List<Partida> partidas;
 	}
 	@Override
 	public String toString() {
-		return "Partidas [Partidas=" + partidas + "]";
+		return "Partidas [Partidas=" + partidas + ",NºPartidas ="+getNumeroPartidas()+"]";
 	}
 	
 	
@@ -88,10 +88,18 @@ private List<Partida> partidas;
 		partidas.remove(n);
 		
 	}
-	@Override
+	//2 parte de la entrega 2:
+	
+	
+	//METODO EXISTE
 	public Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere(Equipo equipo, Integer rivales_matados) {
-		//Hay alguna partida donde los rivales matados del equipo que superen los rivales matados dados como parametro
+		//Existe alguna partida donde los rivales matados del equipo introducido que superen los rivales matados dados como parametro
 		//todos cumplen prop X?
+		/**
+		 * 
+		 * @param equipo y rivales_matados
+		 * @return true si el equipo supere los rivales matados en al menos un objeto del csv.
+		 */
 		Boolean res=false;
 		for (Partida p:partidas) {
 			if(p.getRivales_matados_azul()>=rivales_matados || p.getRivales_matados_rojo()>=rivales_matados ) {//propiedad
@@ -101,8 +109,13 @@ private List<Partida> partidas;
 		}
 		return res;
 	}
-	@Override
+	//METODO MEDIA
 	public Double mediaRivalesMatadosPorEquipoYRango(Rango rango,Equipo equipo ) {
+		/**
+		 * 
+		 * @param equipo y rivales_matados
+		 * @return media de los rivales matados dado un rango y un equipo.
+		 */
 		Double cont=0.0;
 		Double suma=0.0;
 		Double res=0.0;
@@ -133,9 +146,13 @@ private List<Partida> partidas;
 		return res;
 		
 	}
-	@Override
+	//METODO SELECCION DE FILTRADO
 	public Integer cantidadOroEquipoConMasOroPorRango(Rango rango,Equipo equipo) {
-		//((p.getOro_equipo_rojo()+p.getOro_equipo_azul())-(res.getOro_equipo_rojo()+res.getOro_equipo_azul())>0)
+		/**
+		 * 
+		 * @param equipo y rivales_matados
+		 * @return la maxima cantidad de oro que ha obtenido en equipo en un rango.
+		 */		
 		Partida res=null;
 		Integer valor=null;
 		switch (equipo) {
@@ -165,8 +182,12 @@ private List<Partida> partidas;
 		return valor;
 		
 	}
-	@Override
+	//METODO MAP QUE TIENE DE VALOR UN LIST DE LA PROPIEDAD DE TIPO BASE
 	public Map<Rango,List<Partida>> agruparPartidasPorRango(){
+		/**
+		 * 
+		 * @return devuelve un Map en donde la clave es el rango y el valos las partidas de ese rango.
+		 */
 		Map<Rango,List<Partida>> res=new HashMap<>();
 		for(Partida p:partidas) {
 			Rango clave=p.getRango_partida();
@@ -184,8 +205,12 @@ private List<Partida> partidas;
 		return res;
 		
 	}
-	@Override
+	//METODO DE ACUMULACION QUE DEVUELVE UN MAP
 	public SortedMap<Month,Integer> contarPartidasPorMeses(){
+		/**
+		 * 
+		 * @return devuelve un SortedMap en donde la clave son los meses y el valor el numero de partidas que se han jugado en ese mes.
+		 */
 		
 		SortedMap<Month,Integer> res=new TreeMap<>();
 		for (Partida p:partidas) {
