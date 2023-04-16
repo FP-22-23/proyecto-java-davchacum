@@ -25,7 +25,7 @@ public class PartidasImpl implements Partidas {
 private List<Partida> partidas;
 	
 	public PartidasImpl() {
-		partidas=new ArrayList<Partida>();
+		this.partidas=new ArrayList<Partida>();
 		
 	}
 	public PartidasImpl(Collection<Partida> Partidas) {
@@ -103,10 +103,6 @@ private List<Partida> partidas;
 	}
 	@Override
 	public Double mediaRivalesMatadosPorEquipoYRango(Rango rango,Equipo equipo ) {
-		//Las participaciones son la suma de Rivales Matados y Asistencias del Jugador
-		//Por tanto para calcular la media dividimos Las participaciones entre el total de rivales muertos del equipo enemigo
-		//Por ejemplo si en una partida el equipo tiene 8 rivales matados en total y  mejor jugador tiene 2 rivales matados y 2 asistencias 
-		//La media sera 4/8= 50% por tanto este jugador tendra el 50% de las participaciones
 		Double cont=0.0;
 		Double suma=0.0;
 		Double res=0.0;
