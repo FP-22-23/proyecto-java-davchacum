@@ -32,17 +32,48 @@ public interface Partidas {
 	void eliminarPartida(Partida p);
 
 	void eliminarPartida(int n);
+	//2 parte de la entrega 2:
 
+	//METODO EXISTE
 	Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere(Equipo equipo, Integer rivales_matados);
 
-	Integer cantidadOroEquipoConMasOroPorRango(Rango rango, Equipo equipo);
+	//METODO MEDIA
+	Double mediaRivalesMatadosPorEquipoYRango(Rango rango, Equipo equipo);
+	//METODO SELECCION DE FILTRADO
 
+	List<Partida> partidasConRangoyGanador(Rango rango, Boolean gana_azul);
+
+	//METODO DE AGRUPACION QUE DEVUELVE UN MAP
 	Map<Rango, List<Partida>> agruparPartidasPorRango();
 
-	SortedMap<Month,Integer> contarPartidasPorMeses();
+	//METODO DE ACUMULACION QUE DEVUELVE UN MAP
+	SortedMap<Month, Integer> contarPartidasPorMeses();
+	// BLOQUE 1
 
-	
+	Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere2(Equipo equipo, Integer rivales_matados);
+	//METODO MEDIA
+	//2.A escoger uno de los tres siguientes: contador/suma/media (el mismo implementado en la entrega 2, pero con streams).
 
-	Double mediaRivalesMatadosPorEquipoYRango(Rango rango, Equipo equipo);
+	Double mediaRivalesMatadosPorEquipoYRango2(Rango rango, Equipo equipo);
+
+	//METODO SELECCION DE FILTRADO
+	List<Partida> partidasConRangoyGanador2(Rango rango, Boolean gana_azul);
+
+	//Maximo con filtrado
+	Partida partidaMayorcantidadOroEquipoPorRango(Rango rango, Equipo equipo);
+
+	List<Partida> partidasOrdenadasPorFechaRango(Rango rango);
+	//BLOQUE 2
+
+	SortedMap<Month, Integer> contarPartidasPorMeses2();
+	//7.Un método en cuya implementación se use, o bien el Collector collectingAndThen, o bien el Collector mapping.
+
+	Map<Rango, List<Long>> idPartidasDeCadaRango();
+
+	//8.Un método que devuelva un Map en el que las claves sean un atributo o una función sobre un atributo, y los valores son máximos/mínimos de los elementos que tienen ese valor
+	Map<Rango, Integer> partidaConMasRivalesMatadaosPorRango();
+
+	//9.Un método que devuelva un SortedMap en el que las claves sean un atributo o una función sobre un atributo, y los valores sean listas con los n mejores o peores elementos que comparten el valor de ese atributo (o función sobre el atributo).
+	SortedMap<Rango, List<Partida>> nPartidasConMasRivalesMatados(Integer n);
 
 }

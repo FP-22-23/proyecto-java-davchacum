@@ -2,7 +2,7 @@ package fp;
 
 //ENTREGA 1
 import java.time.LocalDate;
-
+import java.time.Month;
 import java.util.List;
 import java.util.Objects;
 
@@ -328,6 +328,13 @@ public class Partida implements Comparable <Partida>{
 			res=parseaTipoVictoria(getOro_equipo_rojo(),getOro_equipo_azul());
 		}
 		return res;
+	}
+	public Month getMonth() {
+		return fecha_partida.getMonth();
+		
+	}
+	public Integer getTotalRivalesMatados() {
+		return getRivales_matados_azul()+getRivales_matados_rojo();
 	}
 	//PARSE EMPLEADO PARA REUTILIZAR CODIGO
 	public TipoVictoria parseaTipoVictoria(Integer oro_equipo_ganador,Integer oro_equipo_perdedor) {

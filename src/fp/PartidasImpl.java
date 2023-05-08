@@ -4,7 +4,9 @@ package fp;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -15,13 +17,15 @@ import java.util.TreeMap;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import fp.aeropuerto.Vuelo;
 import fp.tipos.Equipo;
 import fp.tipos.Rango;
 
 
 
 
-public class PartidasImpl implements Partidas {
+public class PartidasImpl implements Partidas{
 private List<Partida> partidas;
 	
 	public PartidasImpl() {
@@ -34,10 +38,12 @@ private List<Partida> partidas;
 	public PartidasImpl(Stream<Partida> Partidas) {
 		this.partidas = Partidas.collect(Collectors.toList());
 	}
+	
 	@Override
 	public List<Partida> getPartidas() {
 		return partidas;
 	}
+	
 	@Override
 	public String toString() {
 		return "Partidas [Partidas=" + partidas + ",NºPartidas ="+getNumeroPartidas()+"]";
@@ -92,6 +98,7 @@ private List<Partida> partidas;
 	
 	
 	//METODO EXISTE
+	@Override
 	public Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere(Equipo equipo, Integer rivales_matados) {
 		//Existe alguna partida donde los rivales matados del equipo introducido que superen los rivales matados dados como parametro
 		//todos cumplen prop X?
@@ -110,6 +117,7 @@ private List<Partida> partidas;
 		return res;
 	}
 	//METODO MEDIA
+	@Override
 	public Double mediaRivalesMatadosPorEquipoYRango(Rango rango,Equipo equipo ) {
 		/**
 		 * 
@@ -147,42 +155,29 @@ private List<Partida> partidas;
 		
 	}
 	//METODO SELECCION DE FILTRADO
-	public Integer cantidadOroEquipoConMasOroPorRango(Rango rango,Equipo equipo) {
+
+	@Override
+	public List<Partida> partidasConRangoyGanador(Rango rango,Boolean gana_azul) {
 		/**
 		 * 
 		 * @param equipo y rivales_matados
 		 * @return la maxima cantidad de oro que ha obtenido un equipo en un rango dados como parámetro.
-		 */		
-		Partida res=null;
-		Integer valor=null;
-		switch (equipo) {
-		case AZUL:
-			for (Partida p:partidas) {
-				if(p.getRango_partida().equals(rango)) {//filtro por rango
-					if(res==null || (p.getOro_equipo_azul().compareTo(res.getOro_equipo_azul())>0)) {
-						res=p;
-						}
-				}
-			}
-			valor=res.getOro_equipo_azul();
-			break;
-		case ROJO:
-			for (Partida p:partidas) {
-				if(p.getRango_partida().equals(rango)) {//filtro por rango
-					if(res==null || (p.getOro_equipo_rojo().compareTo(res.getOro_equipo_rojo())>0)) {
-						res=p;
-						}
-				}
-			}
-			valor=res.getOro_equipo_rojo();
-			break;
+		 */	
+		List<Partida>res= new ArrayList<Partida>();
+		for (Partida p:partidas) {
+			if(p.getRango_partida().equals(rango) && p.getGana_azul().equals(gana_azul)) {//filtro por rango
+				res.add(p);
+		}
+						
+				
 	
 		}
 		
-		return valor;
+		return res;
 		
 	}
 	//METODO DE AGRUPACION QUE DEVUELVE UN MAP
+	@Override
 	public Map<Rango,List<Partida>> agruparPartidasPorRango(){
 		/**
 		 * 
@@ -206,6 +201,7 @@ private List<Partida> partidas;
 		
 	}
 	//METODO DE ACUMULACION QUE DEVUELVE UN MAP
+	@Override
 	public SortedMap<Month,Integer> contarPartidasPorMeses(){
 		/**
 		 * 
@@ -229,8 +225,87 @@ private List<Partida> partidas;
 		
 			
 	}
+	// BLOQUE 1
 	
-}
+	//METODO EXISTE
+	//1.A escoger uno de los dos siguientes: existe / para todo (el mismo implementado en la entrega 2, pero con streams).
+
+	@Override
+	public Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere2( Equipo equipo,Integer rivales_matados) {
+		return partidas.stream().anyMatch(p -> equipo.equals(Equipo.ROJO) ? p.getRivales_matados_rojo() > rivales_matados: p.getRivales_matados_azul() > rivales_matados);
+		
+	}
+	//METODO MEDIA
+	//2.A escoger uno de los tres siguientes: contador/suma/media (el mismo implementado en la entrega 2, pero con streams).
+
+	@Override
+	public Double mediaRivalesMatadosPorEquipoYRango2(Rango rango,Equipo equipo ) {
+
+		return partidas.stream().filter(p->p.getRango_partida().equals(rango)).collect(Collectors.averagingInt(equipo.equals(Equipo.ROJO) ? Partida::getRivales_matados_rojo: Partida::getRivales_matados_azul));
+//			return partidas.stream().filter(p->p.getRango_partida().equals(rango)).mapToInt(equipo.equals(Equipo.ROJO) ? Partida::getRivales_matados_rojo: Partida::getRivales_matados_azul).average().orElse(0.0);
+		
+	}
+	//METODO SELECCION DE FILTRADO
+	@Override
+	public List<Partida> partidasConRangoyGanador2(Rango rango,Boolean gana_azul) {
+		return partidas.stream().filter(p->p.getRango_partida().equals(rango) && p.getGana_azul().equals(gana_azul)).collect(Collectors.toList());
+	}
+	
+	//Maximo con filtrado
+	@Override
+	public Partida partidaMayorcantidadOroEquipoPorRango(Rango rango,Equipo equipo) {
+		return partidas.stream().filter(p->p.getRango_partida().equals(rango)).max(Comparator.comparingInt(equipo.equals(Equipo.ROJO) ? Partida::getOro_equipo_rojo: Partida::getOro_equipo_azul)).orElse(null);
+		
+	}
+	@Override
+	public List<Partida> partidasOrdenadasPorFechaRango(Rango rango){
+		return partidas.stream().filter(p->p.getRango_partida().equals(rango)).sorted(Comparator.comparing(Partida::getFecha_partida)).collect(Collectors.toList());
+	}
+	//BLOQUE 2
+	
+	
+	//METODO DE ACUMULACION QUE DEVUELVE UN MAP
+	// 6.Uno de los métodos (4) o (5) implementados en la entrega 2, pero con streams.
+
+	@Override
+	public SortedMap<Month,Integer> contarPartidasPorMeses2(){
+		return partidas.stream().collect(Collectors.groupingBy(p->p.getFecha_partida().getMonth(),TreeMap::new,Collectors.collectingAndThen(Collectors.counting(),Long::intValue)));				
+	}
+	//7.Un método en cuya implementación se use, o bien el Collector collectingAndThen, o bien el Collector mapping.
+
+	@Override
+	public Map<Rango,List<Long>>idPartidasDeCadaRango() {
+		return partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,Collectors.mapping(Partida::getId_partida, Collectors.toList())));
+		
+	}
+	//8.Un método que devuelva un Map en el que las claves sean un atributo o una función sobre un atributo, y los valores son máximos/mínimos de los elementos que tienen ese valor
+	@Override
+	public Map<Rango,Integer>partidaConMasRivalesMatadaosPorRango() {
+		return partidas.stream().collect(Collectors.toMap(Partida::getRango_partida,p->p.getRivales_matados_azul()+p.getRivales_matados_rojo(),Integer::max));
+	}
+	//9.Un método que devuelva un SortedMap en el que las claves sean un atributo o una función sobre un atributo, y los valores sean listas con los n mejores o peores elementos que comparten el valor de ese atributo (o función sobre el atributo).
+	@Override
+	public SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatados(Integer n){
+		SortedMap<Rango,List<Partida>> m= partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,TreeMap::new,Collectors.toList()));
+		return m.entrySet().stream().collect(Collectors.toMap(p->p.getKey(), p->p.getValue().stream().sorted(Comparator.comparing(Partida::getTotalRivalesMatados)).limit(n).collect(Collectors.toList())));
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}	
 
 	
 	

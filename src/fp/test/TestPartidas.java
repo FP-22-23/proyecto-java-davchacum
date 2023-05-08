@@ -20,9 +20,10 @@ public class TestPartidas {
 		testMediaRivalesMatadosPorEquipoYRango(datos,Rango.DIAMANTE_III,Equipo.AZUL );
 		testMediaRivalesMatadosPorEquipoYRango(datos,Rango.DIAMANTE_I,Equipo.ROJO );
 		System.out.println("###############################################################################################################");
-		System.out.println("TEST DE LA FUNCION cantidadOroEquipoConMasOroPorRango\n");
-		testCantidadOroEquipoConMasOroPorRango(datos,Rango.DIAMANTE_III,Equipo.AZUL );
-		testCantidadOroEquipoConMasOroPorRango(datos,Rango.DIAMANTE_IV,Equipo.ROJO );
+		System.out.println("TEST DE LA FUNCION partidasConRangoyGanador\n");
+		System.out.println(datos.partidasConRangoyGanador(Rango.DIAMANTE_III,true));
+		testPartidasConRangoyGanador(datos,Rango.DIAMANTE_III,true );
+		testPartidasConRangoyGanador(datos,Rango.DIAMANTE_IV,false );
 		System.out.println("###############################################################################################################");
 		System.out.println("TEST DE LA FUNCION agruparPartidasPorRango \n");
 		testAgruparPartidasPorRango(datos);
@@ -49,9 +50,9 @@ public class TestPartidas {
 			System.err.println("Capturada excepción inesperada: " + e.getMessage());
 		}		
 	}
-	private static void testCantidadOroEquipoConMasOroPorRango(Partidas datos,Rango rango,Equipo equipo) { 
+	private static void testPartidasConRangoyGanador(Partidas datos,Rango rango,Boolean gana_azul) { 
 		try {
-			String msg =String.format("La cantidad maxima de oro del equipo %s en el rango %s es: %d ", equipo,rango, datos.cantidadOroEquipoConMasOroPorRango(rango, equipo));
+			String msg =String.format("Las partidas en donde el equipo azul gano es %b en el rango %s son: %s ",gana_azul,rango, datos.partidasConRangoyGanador(rango, gana_azul));
 			System.out.println(msg);
 		} catch (Exception e) {
 			System.err.println("Capturada excepción inesperada: " + e.getMessage());
