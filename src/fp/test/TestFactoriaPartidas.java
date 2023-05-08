@@ -9,7 +9,7 @@ import fp.Partidas;
 public class TestFactoriaPartidas {
 
 	public static void main(String[] args) {
-		
+		 
 		testLeerPartidas("data/MatchTimelinesFirst15(simplificado).csv");
 		}
 		private static void testLeerPartidas(String fichero) {

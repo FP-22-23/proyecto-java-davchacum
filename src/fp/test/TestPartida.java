@@ -12,8 +12,8 @@ import fp.common.Player;
 public class TestPartida {
 
 	public static void main(String[] args) {
-		
-		
+		 
+		 
 		Partida Prueba1=new Partida(3500000001L,true, LocalDate.of(2020, 2, 2),Rango.DIAMANTE_IV,"Europa");
 		mostrarPartida(Prueba1);
 		Partida Prueba2=new Partida(3500000002L, false, 21000, 15, 15000, 15, LocalDate.of(2020, 2, 2),Rango.DIAMANTE_IV,"Europa");

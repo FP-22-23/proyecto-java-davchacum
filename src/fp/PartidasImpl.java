@@ -285,6 +285,7 @@ private List<Partida> partidas;
 	}
 	//9.Un método que devuelva un SortedMap en el que las claves sean un atributo o una función sobre un atributo, y los valores sean listas con los n mejores o peores elementos que comparten el valor de ese atributo (o función sobre el atributo).
 	@Override
+	
 	public SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatados(Integer n){
 		SortedMap<Rango,List<Partida>> m= partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,TreeMap::new,Collectors.toList()));
 		return m.entrySet().stream().collect(Collectors.toMap(p->p.getKey(), p->p.getValue().stream().sorted(Comparator.comparing(Partida::getTotalRivalesMatados)).limit(n).collect(Collectors.toList())));

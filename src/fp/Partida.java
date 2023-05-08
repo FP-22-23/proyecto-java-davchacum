@@ -11,7 +11,7 @@ import fp.tipos.Equipo;
 import fp.tipos.Rango;
 import fp.tipos.TipoVictoria;
 import fp.utiles.Checkers;
-
+ 
 public class Partida implements Comparable <Partida>{
 	
 	//ATRIBUTOS

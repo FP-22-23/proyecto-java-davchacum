@@ -12,7 +12,7 @@ import fp.tipos.Rango;
 public interface Partidas {
 
 	List<Partida> getPartidas();
-
+ 
 	String toString();
 
 	int hashCode();
