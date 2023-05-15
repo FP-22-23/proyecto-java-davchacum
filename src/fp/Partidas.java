@@ -62,7 +62,7 @@ public interface Partidas {
 	//Maximo con filtrado
 	Partida partidaMayorcantidadOroEquipoPorRango(Rango rango, Equipo equipo);
 
-	List<Partida> partidasOrdenadasPorFechaRango(Rango rango);
+	List<Partida> partidasOrdenadasPorFechaenelRango(Rango rango);
 	//BLOQUE 2
 
 	SortedMap<Month, Integer> contarPartidasPorMeses2();
@@ -71,9 +71,12 @@ public interface Partidas {
 	Map<Rango, List<Long>> idPartidasDeCadaRango();
 
 	//8.Un método que devuelva un Map en el que las claves sean un atributo o una función sobre un atributo, y los valores son máximos/mínimos de los elementos que tienen ese valor
-	Map<Rango, Integer> partidaConMasRivalesMatadaosPorRango();
+	Map<Rango, Integer> maxnMasRivalesMatadaosPorRango();
 
 	//9.Un método que devuelva un SortedMap en el que las claves sean un atributo o una función sobre un atributo, y los valores sean listas con los n mejores o peores elementos que comparten el valor de ese atributo (o función sobre el atributo).
-	SortedMap<Rango, List<Partida>> nPartidasConMasRivalesMatados(Integer n);
+	SortedMap<Rango, List<Partida>> nPartidasConMasRivalesMatadosPorRango(Integer n);
+	
+	//	10 .Un método que calcule un Map y devuelva la clave con el valor asociado (mayor o menor) de todo el Map.
+	Map<Rango,Integer> PartidasConMasOroTotalPorRango();
 
 }

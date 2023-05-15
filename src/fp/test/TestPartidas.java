@@ -21,7 +21,6 @@ public class TestPartidas {
 		testMediaRivalesMatadosPorEquipoYRango(datos,Rango.DIAMANTE_I,Equipo.ROJO );
 		System.out.println("###############################################################################################################");
 		System.out.println("TEST DE LA FUNCION partidasConRangoyGanador\n");
-		System.out.println(datos.partidasConRangoyGanador(Rango.DIAMANTE_III,true));
 		testPartidasConRangoyGanador(datos,Rango.DIAMANTE_III,true );
 		testPartidasConRangoyGanador(datos,Rango.DIAMANTE_IV,false );
 		System.out.println("###############################################################################################################");

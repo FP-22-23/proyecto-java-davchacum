@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.SortedMap;
 
@@ -18,7 +16,6 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import fp.aeropuerto.Vuelo;
 import fp.tipos.Equipo;
 import fp.tipos.Rango;
 
@@ -236,7 +233,7 @@ private List<Partida> partidas;
 		
 	}
 	//METODO MEDIA
-	//2.A escoger uno de los tres siguientes: contador/suma/media (el mismo implementado en la entrega 2, pero con streams).
+	//2. A escoger uno de los tres siguientes: contador/suma/media (el mismo implementado en la entrega 2, pero con streams).
 
 	@Override
 	public Double mediaRivalesMatadosPorEquipoYRango2(Rango rango,Equipo equipo ) {
@@ -245,20 +242,24 @@ private List<Partida> partidas;
 //			return partidas.stream().filter(p->p.getRango_partida().equals(rango)).mapToInt(equipo.equals(Equipo.ROJO) ? Partida::getRivales_matados_rojo: Partida::getRivales_matados_azul).average().orElse(0.0);
 		
 	}
+	//3. Una selección con filtrado (la misma implementada en la entrega 2, pero con streams).
+
 	//METODO SELECCION DE FILTRADO
 	@Override
 	public List<Partida> partidasConRangoyGanador2(Rango rango,Boolean gana_azul) {
 		return partidas.stream().filter(p->p.getRango_partida().equals(rango) && p.getGana_azul().equals(gana_azul)).collect(Collectors.toList());
 	}
 	
+	//4. Un máximo con filtrado.
+
 	//Maximo con filtrado
 	@Override
 	public Partida partidaMayorcantidadOroEquipoPorRango(Rango rango,Equipo equipo) {
 		return partidas.stream().filter(p->p.getRango_partida().equals(rango)).max(Comparator.comparingInt(equipo.equals(Equipo.ROJO) ? Partida::getOro_equipo_rojo: Partida::getOro_equipo_azul)).orElse(null);
 		
 	}
-	@Override
-	public List<Partida> partidasOrdenadasPorFechaRango(Rango rango){
+	// 5. Una selección, con filtrado y ordenación.
+	public List<Partida> partidasOrdenadasPorFechaenelRango(Rango rango){
 		return partidas.stream().filter(p->p.getRango_partida().equals(rango)).sorted(Comparator.comparing(Partida::getFecha_partida)).collect(Collectors.toList());
 	}
 	//BLOQUE 2
@@ -280,19 +281,24 @@ private List<Partida> partidas;
 	}
 	//8.Un método que devuelva un Map en el que las claves sean un atributo o una función sobre un atributo, y los valores son máximos/mínimos de los elementos que tienen ese valor
 	@Override
-	public Map<Rango,Integer>partidaConMasRivalesMatadaosPorRango() {
+	public Map<Rango,Integer>maxnMasRivalesMatadaosPorRango() {
 		return partidas.stream().collect(Collectors.toMap(Partida::getRango_partida,p->p.getRivales_matados_azul()+p.getRivales_matados_rojo(),Integer::max));
 	}
 	//9.Un método que devuelva un SortedMap en el que las claves sean un atributo o una función sobre un atributo, y los valores sean listas con los n mejores o peores elementos que comparten el valor de ese atributo (o función sobre el atributo).
 	@Override
 	
-	public SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatados(Integer n){
+	public SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatadosPorRango(Integer n){
+		Comparator<Partida> c=Comparator.comparing(p->p.getRivales_matados_azul()+p.getRivales_matados_rojo());
 		SortedMap<Rango,List<Partida>> m= partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,TreeMap::new,Collectors.toList()));
-		return m.entrySet().stream().collect(Collectors.toMap(p->p.getKey(), p->p.getValue().stream().sorted(Comparator.comparing(Partida::getTotalRivalesMatados)).limit(n).collect(Collectors.toList())));
+		return m.entrySet().stream().collect(Collectors.toMap(p->p.getKey(), p->p.getValue().stream().sorted(c.reversed()).limit(n).collect(Collectors.toList()),(v1, v2) -> v1,//Eliminamos posibles valores repetidos, si no el codigo da error,para evitar  elementos duplicado escribimos (v1, v2) -> v1 
+				TreeMap::new));
 
 	}
-
-
+//	10 .Un método que calcule un Map y devuelva la clave con el valor asociado (mayor o menor) de todo el Map.
+	public Map<Rango,Integer> PartidasConMasOroTotalPorRango(){
+		Map<Rango, List<Partida>> aux= partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,Collectors.toList()));
+		return aux.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, p->p.getValue().stream().mapToInt(g->g.getOro_equipo_azul()+g.getOro_equipo_rojo()).max().orElse(0)));
+	}
 
 
 
