@@ -208,7 +208,7 @@ Contenedor que almacena una lista de partidas para convertirlo en una clase mas 
 
   - _SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatadosPorRango_: Devuelve un SortedMap en donde las claves son los rangos y el valor las N partidas con mas rivales matados en total.
 
-  - _Rango PartidasConMasOroTotalPorRango: Obtiene el rango de la partida con mas oro en total(método que calcule un Map y devuelva la clave con el valor asociado mayor de todo el Map).
+  - _Rango PartidasConMasOroTotalPorRango_: Obtiene el rango de la partida con mas oro en total(método que calcule un Map y devuelva la clave con el valor asociado mayor de todo el Map).
 
  
  
