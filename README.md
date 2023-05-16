@@ -185,11 +185,33 @@ Contenedor que almacena una lista de partidas para convertirlo en una clase mas 
 -	_void añadirPartida_: Añade una partida al contenedor.
 -	_void añadirCollecionPartida_: Añade una coleccion de partidas al contenedor.
 -	_void eliminarPartida_: Elimina una partida del contenedor, mediante un numero o Partida.
+ 
+ ***Funciones***:
 -	_Boolean existePartidaDondeRivalesMatadosDeUnEquipoSupere_: Devuelve true si el equipo supera los rivales matados dados como parámetros en al menos un objeto del csv.
 -	_Double mediaRivalesMatadosPorEquipoYRango_: Devuelve la media de los rivales matados dado un rango y un equipo dados como parámetro.
 -	_Integer cantidadOroEquipoConMasOroPorRango_: Devuelve la maxima cantidad de oro que ha obtenido un equipo en un rango dados como parámetro.
 -	_Map<Rango,List<Partida>> agruparPartidasPorRango_: Devuelve un Map en donde la clave es el rango y el valor las partidas de ese rango. 
--	SortedMap<Month,Integer> contarPartidasPorMeses_: Devuelve un SortedMap en donde la clave son los meses y el valor el numero de partidas que se han jugado en ese mes.
+-	_SortedMap<Month,Integer> contarPartidasPorMeses_: Devuelve un SortedMap en donde la clave son los meses y el valor el numero de partidas que se han jugado en ese mes.
 
-Hasta aquí la entrega 2
+###STREAMS ENTREGA 3
+ 
+ Se han agregado 10 funciones en donde las funciones de la entrega anterior se han implementado mediante streams excepto la función agruparPartidasPorRango.
+ - _Partida partidaMayorcantidadOroEquipoPorRango_: Dado un Equipo y un Rango devuelve la partida con la mayor cantidad de oro.
+ 
+  - _Partida partidaMayorcantidadOroEquipoPorRango_: Dado un Equipo y un Rango devuelve la partida con la mayor cantidad de oro.
+
+  - _List<Partida> partidasOrdenadasPorFechaenelRango_: Dado un rango devuelve las partidas de ese rango ordenadas por fechas.
+
+  - _Map<Rango,List<Long>>idPartidasDeCadaRango_: Devuelve un Map en donde las claves son el rango y los valores una lista de los id.
+
+  - _Map<Rango,Integer>maxnMasRivalesMatadaosPorRango_: Devuelve un Map en donde las claves son el rango y los valores el maximo numero rivales matados en total en una partida.
+
+  - _SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatadosPorRango_: Devuelve un SortedMap en donde las claves son los rangos y el valor las N partidas con mas rivales matados en total.
+
+  - _Rango PartidasConMasOroTotalPorRango: Obtiene el rango de la partida con mas oro en total(método que calcule un Map y devuelva la clave con el valor asociado mayor de todo el Map).
+
+ 
+ 
+ 
+ 
 
