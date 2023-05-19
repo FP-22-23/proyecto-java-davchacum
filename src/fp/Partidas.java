@@ -75,8 +75,13 @@ public interface Partidas {
 
 	//9.Un método que devuelva un SortedMap en el que las claves sean un atributo o una función sobre un atributo, y los valores sean listas con los n mejores o peores elementos que comparten el valor de ese atributo (o función sobre el atributo).
 	SortedMap<Rango, List<Partida>> nPartidasConMasRivalesMatadosPorRango(Integer n);
+	List<Partida> aux(List<Partida> listPartidas, Integer n);
 	
 	//	10 .Un método que calcule un Map y devuelva la clave con el valor asociado (mayor o menor) de todo el Map.
-	Map<Rango,Integer> PartidasConMasOroTotalPorRango();
+	Rango PartidaConRangoConMasOroTotal();
+
+	
+	
+	
 
 }

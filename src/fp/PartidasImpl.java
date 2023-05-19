@@ -287,17 +287,29 @@ private List<Partida> partidas;
 	//9.Un método que devuelva un SortedMap en el que las claves sean un atributo o una función sobre un atributo, y los valores sean listas con los n mejores o peores elementos que comparten el valor de ese atributo (o función sobre el atributo).
 	@Override
 	
+//	public SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatadosPorRango(Integer n){
+//		Comparator<Partida> c=Comparator.comparing(p->p.getRivales_matados_azul()+p.getRivales_matados_rojo());
+//		SortedMap<Rango,List<Partida>> m= partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,TreeMap::new,Collectors.toList()));
+//		return m.entrySet().stream().collect(Collectors.toMap(p->p.getKey(), p->p.getValue().stream().sorted(c.reversed()).limit(n).collect(Collectors.toList()),(v1, v2) -> v1,//Eliminamos posibles valores repetidos, si no el codigo da error,para evitar  elementos duplicado escribimos (v1, v2) -> v1 
+//				TreeMap::new));
+//
+//	}
 	public SortedMap<Rango,List<Partida>> nPartidasConMasRivalesMatadosPorRango(Integer n){
+			return partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,TreeMap::new,Collectors.collectingAndThen(Collectors.toList(),
+					lista->aux(lista, n))));
+		}
+	@Override
+	public List<Partida> aux(List<Partida> listPartidas,Integer n) {
 		Comparator<Partida> c=Comparator.comparing(p->p.getRivales_matados_azul()+p.getRivales_matados_rojo());
-		SortedMap<Rango,List<Partida>> m= partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,TreeMap::new,Collectors.toList()));
-		return m.entrySet().stream().collect(Collectors.toMap(p->p.getKey(), p->p.getValue().stream().sorted(c.reversed()).limit(n).collect(Collectors.toList()),(v1, v2) -> v1,//Eliminamos posibles valores repetidos, si no el codigo da error,para evitar  elementos duplicado escribimos (v1, v2) -> v1 
-				TreeMap::new));
-
+		return listPartidas.stream().sorted(c.reversed()).limit(n).collect(Collectors.toList());
 	}
+
+	
 //	10 .Un método que calcule un Map y devuelva la clave con el valor asociado (mayor o menor) de todo el Map.
-	public Map<Rango,Integer> PartidasConMasOroTotalPorRango(){
-		Map<Rango, List<Partida>> aux= partidas.stream().collect(Collectors.groupingBy(Partida::getRango_partida,Collectors.toList()));
-		return aux.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, p->p.getValue().stream().mapToInt(g->g.getOro_equipo_azul()+g.getOro_equipo_rojo()).max().orElse(0)));
+	public Rango PartidaConRangoConMasOroTotal(){
+
+		Map<Rango, Integer>aux= partidas.stream().collect(Collectors.toMap(Partida::getRango_partida,p->p.getRivales_matados_azul()+p.getRivales_matados_rojo(),Integer::max));
+		return aux.entrySet().stream().max(Map.Entry.comparingByValue(Comparator.reverseOrder())).map(k->k.getKey()).get();
 	}
 
 

@@ -49,8 +49,8 @@ Partidas datos = FactoriaPartidas.leerPartidas2("data/MatchTimelinesFirst15(simp
 ;
 		
 		System.out.println("###############################################################################################################");
-		System.out.println("TEST DE LA FUNCION PartidasConMasOroTotalPorRango\n");
-		testPartidasConMasOroTotalPorRango(datos);
+		System.out.println("TEST DE LA FUNCION PartidaConRangoConMasOroTotal\n");
+		testPartidaConRangoConMasOroTotal(datos);
 		
 		
 		
@@ -138,9 +138,9 @@ Partidas datos = FactoriaPartidas.leerPartidas2("data/MatchTimelinesFirst15(simp
 		}		
 	}
 	//9
-	private static void testPartidasConMasOroTotalPorRango(Partidas datos) {
+	private static void testPartidaConRangoConMasOroTotal(Partidas datos) {
 		try {
-			String msg =String.format("La partida con mas oro por rango:\n%s ", datos.PartidasConMasOroTotalPorRango());
+			String msg =String.format("La partida con mas oro por rango:\n%s ", datos.PartidaConRangoConMasOroTotal());
 			System.out.println(msg);
 		} catch (Exception e) {
 			System.err.println("Capturada excepción inesperada: " + e.getMessage());
